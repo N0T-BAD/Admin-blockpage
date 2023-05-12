@@ -1,0 +1,28 @@
+@keyframes slide-in-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .logo {
+    margin: auto;
+    width: 8rem;
+    position: relative;
+    margin-bottom: -2.2rem;
+    z-index: 101;
+  }
+  
+  .logo img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .logo h1 {
+    font-size: 0;
+  }
+  
