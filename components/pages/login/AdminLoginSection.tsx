@@ -1,6 +1,6 @@
 import React from 'react'
 import style from '@/components/pages/login/AdminLoginSection.module.css'
-import AdminLogin from './AdminLogin'
+import AdminLogin from '@/components/pages/login/AdminLogin'
 
 export default function AdminLoginSection() {
     return (

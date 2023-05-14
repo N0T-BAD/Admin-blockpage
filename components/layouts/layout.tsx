@@ -9,12 +9,12 @@ export default function Layout(props: { children: React.ReactNode }) {
         <>
             <Header />
             <div>{props.children}</div>
-            {
+            {/* {
                 router.pathname === '/' ?
                     <Footer />
                     :
                     <></>
-            }
+            } */}
         </>
     )
 }
