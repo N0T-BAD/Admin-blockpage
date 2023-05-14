@@ -10,19 +10,14 @@
   }
 
   .logo {
-    margin: auto;
+    margin-left: 10rem;
     width: 8rem;
-    position: relative;
-    margin-bottom: -2.2rem;
     z-index: 101;
+    display: flex;
   }
   
-  .logo img {
-    width: 100%;
-    height: auto;
+  header.headerWrap{
+    margin-top: 5rem;
+    position: relative;
+    z-index: 100;
   }
-  
-  .logo h1 {
-    font-size: 0;
-  }
-  

@@ -1,0 +1,52 @@
+section.MainNavSection{
+    margin : 3rem 20rem;
+}
+
+  .TopCategoriesBox{
+    display: flex;
+    margin: 2rem 0;
+    height: 2rem;
+  }
+
+  .TopCategories{
+    width: 30%;
+  }
+
+  .TopCategories p{
+    width: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    background-color: var(--bp-line-gray);
+    justify-content: center;
+    height: 100%;
+    border-radius: 0.6rem;
+  }
+
+  section.ContentBox{
+    background-color: var(--bp-white);
+    height: 30rem;
+    margin : 4rem 20rem;
+    padding: 1.5rem 0;
+  }
+
+  .subCategoriesBox{
+    display: flex;
+    margin: 0 5rem;
+    height: 2rem;
+  }
+  
+.subCategories{
+    width: 30%;
+}
+
+.subCategories p{
+    width: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    background-color: var(--bp-line-gray);
+    justify-content: center;
+    height: 100%;
+    border-radius: 0.6rem;
+  }
