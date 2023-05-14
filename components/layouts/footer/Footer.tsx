@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import style from '@/components/layouts/Footer.module.css'
+import style from '@/components/layouts/footer/Footer.module.css'
 import { useRouter } from 'next/router';
 
 export default function Footer() {

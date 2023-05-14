@@ -12,10 +12,9 @@ export default function Header() {
     }
 
     return (
-        <header>
+        <header className={style.headerWrap}>
             <div className={style.logo}>
                 <Image src={'/assets/images/logo/logo.svg'} alt="logo" width={200} height={77} onClick={handlemain} />
-                <h1>BlockPage</h1>
             </div>
         </header>
     )
