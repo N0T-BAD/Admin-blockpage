@@ -1,9 +1,12 @@
 import Layout from "@/components/layouts/layout"
+import MainNavSection from "@/components/pages/main/MainNavSection"
 import { NextPageWithLayout } from "@/pages/_app"
 
 const main: NextPageWithLayout = () => {
   return (
-    <></>
+    <>
+      <MainNavSection />
+    </>
   )
 }
 
