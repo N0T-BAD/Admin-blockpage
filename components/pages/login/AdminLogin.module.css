@@ -1,0 +1,48 @@
+.AdminLoginWrap{
+    margin: 1rem;
+}
+
+.inputIDWrap{
+    width: 100%;
+    height: 1.5rem;
+    margin : 0.5rem 0;
+}
+
+.AdminLogin p{
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 1rem;
+}
+
+input.inputID{
+    width: 100%;
+    border-radius: 0.5rem 0.5rem 0 0;
+    border: none;
+    padding-left: 0.5rem;
+    height: 100%;
+}
+
+button.Loginbutton{
+    width: 100%;
+    background-color: var(--bp-primary);
+    border: none;
+    border-radius: 0.5rem;
+    height: 2rem;
+    color: var(--bp-white);
+    font-weight: 600;
+}
+
+.inputPwWrap{
+    width: 100%;
+    height: 1.5rem;
+    margin: 0.5rem 0 1rem 0;
+}
+
+input.inputPw{
+    width: 100%;
+    border-radius: 0 0 0.5rem 0.5rem;
+    border: none;
+    padding-left: 0.5rem;
+    height: 100%;
+}

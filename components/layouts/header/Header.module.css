@@ -1,0 +1,23 @@
+@keyframes slide-in-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .logo {
+    margin-left: 10rem;
+    width: 8rem;
+    z-index: 101;
+    display: flex;
+  }
+  
+  header.headerWrap{
+    margin-top: 5rem;
+    position: relative;
+    z-index: 100;
+  }
