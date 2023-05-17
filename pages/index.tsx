@@ -1,21 +1,21 @@
-import Layout from "@/components/layouts/layout"
-import MainNavSection from "@/components/pages/main/MainNavSection"
+import AdminLoginSection from "@/components/pages/login/AdminLoginSection"
 import { NextPageWithLayout } from "@/pages/_app"
 
-const main: NextPageWithLayout = () => {
+const login: NextPageWithLayout = () => {
   return (
     <>
-      <MainNavSection />
+      <AdminLoginSection />
     </>
   )
 }
 
-main.getLayout = function getLayout(main: React.ReactElement) {
+login.getLayout = function getLayout(page: React.ReactElement) {
   return (
-    <Layout>
-      {main}
-    </Layout>
+    <>
+      {page}
+    </>
   )
 }
 
-export default main
+export default login
+

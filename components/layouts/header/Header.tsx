@@ -22,7 +22,7 @@ export default function Header() {
                     confirmButton: 'swal-confirm-button'
                 }
             }).then(
-                res => res.isConfirmed && router.push('/login')
+                res => res.isConfirmed && router.push('/')
             )
             return;
         }
