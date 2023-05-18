@@ -6,7 +6,6 @@ import { adminLoginState } from '@/state/adminLoginState';
 import { useRecoilValue } from 'recoil';
 import Swal from 'sweetalert2';
 import MainNavSection from '@/components/pages/main/MainNavSection';
-import { MainTopNavData } from '@/data/MainTopNavData';
 
 export default function Header() {
 
@@ -23,7 +22,7 @@ export default function Header() {
                     confirmButton: 'swal-confirm-button'
                 }
             }).then(
-                res => res.isConfirmed && router.push('/login')
+                res => res.isConfirmed && router.push('/')
             )
             return;
         }
@@ -38,7 +37,6 @@ export default function Header() {
             <div className={style.logo}>
                 <Image src={'/assets/images/logo/logo.svg'} alt="logo" width={200} height={77} onClick={handlemain} />
             </div>
-            <MainNavSection categories={MainTopNavData} />
         </header>
     )
 }

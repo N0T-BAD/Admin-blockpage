@@ -1,10 +1,5 @@
-interface Category {
+export interface AuthorPath {
     id: number;
     name: string;
-    subcategories: Subcategory[];
-}
-
-interface Subcategory {
-    id: number;
-    name: string;
+    path: string;
 }

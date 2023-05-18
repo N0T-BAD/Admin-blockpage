@@ -1,0 +1,50 @@
+export const commentsData = [
+    {
+        id: 1,
+        name: 'John Doe',
+        comment: '이 웹툰 재미없네 ㅋㅋ',
+        date: '2020-01-01',
+        time: '10:00',
+        type: '비하',
+    },
+    {
+        id: 2,
+        name: '백고은',
+        comment: '이 웹툰 재미없네 ㅋㅋ',
+        date: '2020-01-01',
+        time: '10:00',
+        type: '비하',
+    },
+    {
+        id: 3,
+        name: '두부',
+        comment: '이 웹툰 재미없네 ㅋㅋ',
+        date: '2020-01-01',
+        time: '10:00',
+        type: '비하',
+    },
+    {
+        id: 4,
+        name: '두부 입니다만',
+        comment: '이 웹툰 재미없네 ㅋㅋ',
+        date: '2020-01-01',
+        time: '10:00',
+        type: '비하',
+    },
+    {
+        id: 5,
+        name: '강아지',
+        comment: '이 웹툰 재미없네 ㅋㅋ',
+        date: '2020-01-01',
+        time: '10:00',
+        type: '비하',
+    },
+    {
+        id: 6,
+        name: '고양이',
+        comment: '이 웹툰 재미없네 ㅋㅋ',
+        date: '2020-01-01',
+        time: '10:00',
+        type: '비하',
+    }
+]
