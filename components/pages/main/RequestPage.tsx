@@ -20,7 +20,7 @@ export default function RequestPage() {
   }
 
   return (
-    <>
+    <div className={style.adminBox}>
       <div className={style.HistoryCategory}>
         <nav>
           <ul>
@@ -190,6 +190,6 @@ export default function RequestPage() {
           }
         </div>
       ))}
-    </>
+    </div>
   )
 }

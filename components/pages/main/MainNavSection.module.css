@@ -22,11 +22,15 @@ section.MainNavSection {
   border-radius: 0.6rem;
 }
 
-section.ContentBox {
+.adminBox {
   background-color: var(--bp-white);
   margin: 0 20rem;
   height: 35rem;
   overflow-y: scroll;
+}
+
+.adminBox::-webkit-scrollbar {
+  display: none;
 }
 
 .subCategoriesBox {
@@ -167,11 +171,9 @@ section.ContentBox {
 }
 
 .HistoryCategory {
-  width: 60.7%;
-  position: fixed;
+  width: 100%;
   background-color: var(--bp-white);
   height: 3rem;
-  z-index: 101;
 }
 
 .HistoryCategory nav {
@@ -222,7 +224,6 @@ section.ContentBox {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 3rem;
 }
 
 .NoClickactive {

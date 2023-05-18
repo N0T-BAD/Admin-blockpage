@@ -24,19 +24,6 @@ export default function MainNavSection() {
                     ))}
                 </div>
             </section>
-            <section className={style.ContentBox}>
-                {
-                    router.pathname === "/request" ?
-                        <RequestPage />
-                        : router.pathname === "/comments" ?
-                            <CommentsPage />
-                            :
-                            router.pathname === "/management" ?
-                                <></>
-                                :
-                                <></>
-                }
-            </section>
         </>
     )
 }
