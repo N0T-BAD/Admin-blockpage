@@ -6,6 +6,7 @@ import { webtoonData } from '@/data/webtoonData';
 import Image from 'next/image';
 import { episodesubcategories, webtoonsubcategories } from '@/types/webtoon/webtoonDataType';
 import RequestPage from './RequestPage';
+import CommentsPage from '../comments/CommentsPage';
 
 
 export default function MainNavSection() {
@@ -28,7 +29,7 @@ export default function MainNavSection() {
                     router.pathname === "/request" ?
                         <RequestPage />
                         : router.pathname === "/comments" ?
-                            <></>
+                            <CommentsPage />
                             :
                             router.pathname === "/management" ?
                                 <></>

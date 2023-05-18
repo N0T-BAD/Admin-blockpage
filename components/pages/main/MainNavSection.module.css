@@ -25,7 +25,8 @@ section.MainNavSection {
 section.ContentBox {
   background-color: var(--bp-white);
   margin: 0 20rem;
-  padding: 1.5rem 0;
+  height: 35rem;
+  overflow-y: scroll;
 }
 
 .subCategoriesBox {
@@ -166,28 +167,42 @@ section.ContentBox {
 }
 
 .HistoryCategory {
-  width: 100%;
+  width: 60.7%;
+  position: fixed;
+  background-color: var(--bp-white);
+  height: 3rem;
+  z-index: 101;
+}
+
+.HistoryCategory nav {
+  height: 100%;
 }
 
 .HistoryCategory nav ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100%;
+  background-color: var(--bp-white);
 }
 
 .HistoryCategory nav ul li {
   list-style: none;
   width: 50%;
-  height: 2rem;
-  text-align: center;
+  height: 100%;
   font-size: 1rem;
   font-weight: 500;
+  background-color: var(--bp-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .HistoryCategory nav ul li.active {
   font-weight: 600;
   color: var(--bp-blue);
   border-bottom: 0.2rem solid var(--bp-blue);
+  background-color: var(--bp-white);
 }
 
 .chargeBlockBox {
@@ -207,6 +222,7 @@ section.ContentBox {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 3rem;
 }
 
 .NoClickactive {
