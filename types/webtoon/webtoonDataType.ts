@@ -23,3 +23,14 @@ export interface episodesubcategories {
     day: string;
     reason?: string;
 }
+
+export interface authorWebtoonInfoStateType {
+    title: string;
+    description: string;
+    genre: string;
+    day: string;
+    author: string;
+    illustrator: string;
+    mainImageData: string;
+    thumbnailImageData: string;
+}
