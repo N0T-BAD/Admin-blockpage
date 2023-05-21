@@ -1,12 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import style from '@/components/pages/main/MainNavSection.module.css'
 import { AuthorPathData } from '@/data/MainTopNavData'
 import { useRouter } from 'next/router';
-import { webtoonData } from '@/data/webtoonData';
-import Image from 'next/image';
-import { episodesubcategories, webtoonsubcategories } from '@/types/webtoon/webtoonDataType';
-import RequestPage from './RequestPage';
-import CommentsPage from '../comments/CommentsPage';
+
 
 
 export default function MainNavSection() {
