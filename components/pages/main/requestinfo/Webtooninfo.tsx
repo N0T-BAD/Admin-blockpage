@@ -19,7 +19,8 @@ export default function Webtooninfo() {
             author: '',
             illustrator: '',
             mainImageData: '',
-            thumbnailImageData: ''
+            thumbnailImageData: '',
+            ask: true,
         }
     );
 
@@ -39,6 +40,7 @@ export default function Webtooninfo() {
             illustrator: webtooninfo.illustrator,
             mainImageData: webtooninfo.mainImageData,
             thumbnailImageData: webtooninfo.thumbnailImageData,
+            ask: true,
         })
             .then((res) => {
                 console.log(res)
@@ -56,6 +58,7 @@ export default function Webtooninfo() {
             illustrator: webtooninfo.illustrator,
             mainImageData: webtooninfo.mainImageData,
             thumbnailImageData: webtooninfo.thumbnailImageData,
+            ask: false,
         })
             .then((res) => {
                 console.log(res)

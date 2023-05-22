@@ -19,6 +19,7 @@ export default function EpisodeInfo() {
       authortalk: '',
       thumbnailImage: '',
       edisodeImage: '',
+      ask: true,
     }
   );
 
@@ -27,6 +28,42 @@ export default function EpisodeInfo() {
       .then(res => res.data)
       .then(data => setEpisode(data))
   }, [])
+
+  const handleApproval = () => {
+    axios.post('api', {
+      id: episode.id,
+      title: episode.title,
+      episodetitle: episode.episodetitle,
+      episodedescription: episode.episodedescription,
+      day: episode.day,
+      authortalk: episode.authortalk,
+      thumbnailImage: episode.thumbnailImage,
+      edisodeImage: episode.edisodeImage,
+      ask: true,
+    })
+      .then((res) => {
+        console.log(res)
+        router.push("/request")
+      })
+  }
+
+  const handleRefusal = () => {
+    axios.post('api', {
+      id: episode.id,
+      title: episode.title,
+      episodetitle: episode.episodetitle,
+      episodedescription: episode.episodedescription,
+      day: episode.day,
+      authortalk: episode.authortalk,
+      thumbnailImage: episode.thumbnailImage,
+      edisodeImage: episode.edisodeImage,
+      ask: false,
+    })
+      .then((res) => {
+        console.log(res)
+        router.push("/request")
+      })
+  }
 
   return (
     <div className={style.adminBox}>
@@ -79,8 +116,8 @@ export default function EpisodeInfo() {
             </div>
           </div>
           <div className={style.submit}>
-            <button >승인</button>
-            <button >거부</button>
+            <button onClick={handleApproval}>승인</button>
+            <button onClick={handleRefusal}>거부</button>
           </div>
         </div>
       }

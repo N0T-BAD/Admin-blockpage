@@ -34,6 +34,7 @@ export interface WebtoonStateType {
     illustrator: string;
     mainImageData: string;
     thumbnailImageData: string;
+    ask: boolean;
 }
 
 export interface episodeStateType {
@@ -45,4 +46,5 @@ export interface episodeStateType {
     authortalk: string;
     thumbnailImage: string;
     edisodeImage: string;
+    ask: boolean;
 }
