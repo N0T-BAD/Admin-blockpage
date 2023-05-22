@@ -22,7 +22,7 @@
 
   --bp-font: "Roboto", sans-serif;
 
-  --bp-background: #F1F1F1;
+  --bp-background: #f1f1f1;
 
   /* --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -49,6 +49,7 @@ html,
 body {
   overflow-x: hidden;
   background-color: var(--bp-gray);
+  margin: 0;
 }
 
 a {

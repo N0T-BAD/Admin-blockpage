@@ -71,7 +71,7 @@ export default function RequestPage() {
                 <>
                   {category.webtoonsubcategories && category.webtoonsubcategories.map((subCategory: webtoonsubcategories) => (
                     <div className={style.webtoonBox}>
-                      <div className={style.webtoonInfoWrap} onClick={handleEpisodeClick}>
+                      <div className={style.webtoonInfoWrap}>
                         <div className={style.ImgWrap}>
                           <Image src={'/assets/webtoon/image1.png'} alt={'이것이 법이다'} width={140} height={120} />
                         </div>
@@ -157,7 +157,7 @@ export default function RequestPage() {
                       <>
                         {category.episodesubcategories && category.episodesubcategories.map((subCategory: episodesubcategories) => (
                           <div className={style.webtoonBox}>
-                            <div className={style.webtoonInfoWrap} onClick={handleEpisodeClick}>
+                            <div className={style.webtoonInfoWrap}>
                               <div className={style.ImgWrap}>
                                 <Image src={'/assets/webtoon/image1.png'} alt={'이것이 법이다'} width={140} height={120} />
                               </div>

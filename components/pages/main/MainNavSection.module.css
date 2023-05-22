@@ -1,10 +1,16 @@
 section.MainNavSection {
+  margin: 0 20rem;
+  height: 5%;
+}
+
+section.bottomSection {
+  height: 85%;
   margin: 2rem 20rem;
 }
 
 .TopCategoriesBox {
   display: flex;
-  height: 2rem;
+  height: 100%;
 }
 
 .TopCategories {
@@ -24,8 +30,7 @@ section.MainNavSection {
 
 .adminBox {
   background-color: var(--bp-white);
-  margin: 0 20rem;
-  height: 35rem;
+  height: 30rem;
   overflow-y: scroll;
 }
 
@@ -58,8 +63,8 @@ section.MainNavSection {
   display: flex;
   width: 45%;
   border-bottom: 1px solid var(--bp-gray);
-  padding: 0.6rem 0;
-  margin: 1rem 1rem;
+  padding: 1.6rem 0;
+  margin: 0 1rem;
   flex-direction: column;
 }
 
