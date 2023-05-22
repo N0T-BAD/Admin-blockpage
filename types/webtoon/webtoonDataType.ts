@@ -24,7 +24,8 @@ export interface episodesubcategories {
     reason?: string;
 }
 
-export interface authorWebtoonInfoStateType {
+export interface WebtoonStateType {
+    id: number;
     title: string;
     description: string;
     genre: string;
@@ -33,4 +34,15 @@ export interface authorWebtoonInfoStateType {
     illustrator: string;
     mainImageData: string;
     thumbnailImageData: string;
+}
+
+export interface episodeStateType {
+    id: number;
+    title: string;
+    episodetitle: string;
+    episodedescription: string;
+    day: string;
+    authortalk: string;
+    thumbnailImage: string;
+    edisodeImage: string;
 }

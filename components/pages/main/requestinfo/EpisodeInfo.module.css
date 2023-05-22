@@ -12,12 +12,12 @@
   display: none;
 }
 
-.WebtoonInfoWrap {
+.episodewrap {
   margin: 1rem 0;
   width: 100%;
 }
 
-p.webtooninfotitle {
+p.episodeinfotitle {
   width: 25%;
   display: flex;
   justify-content: center;
@@ -46,27 +46,6 @@ p.webtooninfotitle {
   padding-left: 1rem;
 }
 
-.InfoillustratorBox {
-  display: flex;
-  width: 100%;
-  height: 2rem;
-  margin: 2rem 0;
-}
-
-.InfoillustratorBox p {
-  width: 25%;
-  text-align: center;
-  align-self: center;
-}
-
-.InfoillustratorBox p.infotxt {
-  width: 70%;
-  background-color: var(--bp-gray);
-  border-radius: 1rem;
-  border: none;
-  padding-left: 1rem;
-}
-
 .submit {
   width: 100%;
   margin: 5rem 0;
@@ -86,6 +65,15 @@ p.webtooninfotitle {
   font-weight: 600;
   border-radius: 0.4rem;
   margin: 0 1rem;
+}
+
+.episodeInfoImgBox {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  margin: 1rem 0;
+  flex-direction: column;
+  align-items: center;
 }
 
 .InfoImgBox {
@@ -109,6 +97,10 @@ p.webtooninfotitle {
   margin: 1rem 0;
 }
 
+.episodeImg {
+  text-align: center;
+}
+
 .ImageBox {
   width: fit-content;
   display: flex;
@@ -119,4 +111,19 @@ p.webtooninfotitle {
 .ImageBox img {
   width: fit-content;
   margin: 1rem 0;
+}
+
+.episodeimg {
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 25rem;
+  margin: 1rem 0;
+  border: 5px solid var(--bp-gray);
+  text-align: center;
+}
+
+.episodeimg::-webkit-scrollbar {
+  display: none;
 }

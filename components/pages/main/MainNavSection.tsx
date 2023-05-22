@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import RequestPage from './RequestPage';
 import CommentsPage from '../comments/CommentsPage';
 import WebtooninfoSection from './requestinfo/WebtooninfoSection';
+import EpisodeInfo from './requestinfo/EpisodeInfo';
 
 
 
@@ -30,7 +31,9 @@ export default function MainNavSection() {
                         <CommentsPage />
                         : router.pathname === "/correction" ?
                             <WebtooninfoSection />
-                            : ""
+                            : router.pathname === "/episode" ?
+                                <EpisodeInfo />
+                                : ""
                 }
             </section>
         </>

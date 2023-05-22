@@ -15,8 +15,12 @@ export default function RequestPage() {
     setActive(name);
   }
 
-  const handleEpisodeClick = () => {
+  const handleWebtoonClick = () => {
     router.push("/correction");
+  }
+
+  const handleEpisodeClick = () => {
+    router.push("/episode");
   }
 
   return (
@@ -43,7 +47,7 @@ export default function RequestPage() {
             category.name === '웹툰 수정' ?
               <>
                 {category.webtoonsubcategories && category.webtoonsubcategories.map((subCategory) => (
-                  <div className={style.webtoonBox} onClick={handleEpisodeClick}>
+                  <div className={style.webtoonBox} onClick={handleWebtoonClick}>
                     <div className={style.webtoonInfoWrap}>
                       <div className={style.ImgWrap}>
                         <Image src={'/assets/webtoon/image1.png'} alt={'이것이 법이다'} width={140} height={120} />
