@@ -34,7 +34,7 @@ export default function EpisodeInfo() {
         <div className={style.episodewrap} key={episode.id}>
           {router.pathname === "/episode" ?
             <p className={style.episodeinfotitle}>회차 등록</p>
-            : router.pathname === "/chargeepisode" ?
+            : router.pathname === "/changeepisode" ?
               <p className={style.episodeinfotitle}>회차 수정</p>
               : ""
           }

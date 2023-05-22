@@ -33,7 +33,9 @@ export default function MainNavSection() {
                             <WebtooninfoSection />
                             : router.pathname === "/episode" ?
                                 <EpisodeInfo />
-                                : ""
+                                : router.pathname === "/changeepisode" ?
+                                    <EpisodeInfo />
+                                    : ""
                 }
             </section>
         </>

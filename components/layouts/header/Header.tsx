@@ -29,7 +29,7 @@ export default function Header() {
     }, [accessToken, isLogin])
 
     const handlemain = () => {
-        router.push("/");
+        router.push("/request");
     }
 
     return (
