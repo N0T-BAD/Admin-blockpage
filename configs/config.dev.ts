@@ -1,7 +1,7 @@
 import getConfigs from "./config.common";
 
 // backend 서버 URL
-const baseUrl = "http://10.10.10.51:8080";
+const baseUrl = "https://blockpage.site";
 
 const mode = "dev";
 

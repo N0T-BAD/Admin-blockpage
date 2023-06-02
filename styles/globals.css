@@ -11,6 +11,7 @@
   --bp-secondary-gray: #e3dfdf;
   --bp-blue-gray: #e3e8f0;
   --bp-green: #00ffb2;
+  --bp-dark-gray: #353535;
 
   --bp-font-gray: #778087;
 
@@ -22,7 +23,7 @@
 
   --bp-font: "Roboto", sans-serif;
 
-  --bp-background: #F1F1F1;
+  --bp-background: #f1f1f1;
 
   /* --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -49,6 +50,7 @@ html,
 body {
   overflow-x: hidden;
   background-color: var(--bp-gray);
+  margin: 0;
 }
 
 a {

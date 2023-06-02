@@ -1,33 +1,65 @@
-section.MainNavSection {
-  margin: 2rem 20rem;
-}
-
-.TopCategoriesBox {
-  display: flex;
-  height: 2rem;
-}
-
-.TopCategories {
-  width: 30%;
-}
-
-.TopCategories p {
-  width: 50%;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  background-color: var(--bp-line-gray);
-  justify-content: center;
+section.bottomSection {
   height: 100%;
-  border-radius: 0.6rem;
+  /* margin-left: 30rem; */
+  margin: 0 5rem;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .adminBox {
   background-color: var(--bp-white);
-  margin: 0 20rem;
-  height: 35rem;
+  width: 48%;
+  height: 30%;
   overflow-y: scroll;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+  margin: 1rem 0;
 }
+
+/* .webtoontext {
+  border-bottom: 1px solid var(--bp-gray);
+  height: 20%;
+  width: 100%;
+}
+
+.webtoontext p {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.3rem;
+} */
+
+.webtoontext {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--bp-white);
+  border-bottom: 1px solid var(--bp-gray);
+  height: 20%;
+}
+
+.webtoontext p {
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+
+/* .adminBox {
+  background-color: var(--bp-white);
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+} */
 
 .adminBox::-webkit-scrollbar {
   display: none;
@@ -56,10 +88,9 @@ section.MainNavSection {
 
 .webtoonBox {
   display: flex;
-  width: 45%;
+  width: 100%;
   border-bottom: 1px solid var(--bp-gray);
-  padding: 0.6rem 0;
-  margin: 1rem 1rem;
+  padding: 1.6rem 1rem;
   flex-direction: column;
 }
 
