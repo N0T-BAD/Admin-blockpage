@@ -1,4 +1,4 @@
-import React, { useRouter } from "next/router"
+import React from "next/router"
 import Header from "@/components/layouts/header/Header"
 import style from "@/components/layouts/layout.module.css"
 

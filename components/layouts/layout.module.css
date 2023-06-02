@@ -4,5 +4,8 @@
 }
 
 .childrenbox {
-  height: 70%;
+  margin-left: 15rem;
+  height: 100%;
+  width: 85%;
+  overflow-x: scroll;
 }

@@ -1,5 +1,5 @@
 export interface inputAdminType {
-    id: string;
+    adminId: string;
     password: string;
 }
 
