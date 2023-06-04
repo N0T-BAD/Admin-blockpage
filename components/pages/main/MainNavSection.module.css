@@ -1,258 +1,305 @@
-section.MainNavSection{
-    margin : 3rem 20rem;
+section.bottomSection {
+  height: 100%;
+  /* margin-left: 30rem; */
+  margin: 0 5rem;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-  .TopCategoriesBox{
-    display: flex;
-    margin: 2rem 0;
-    height: 2rem;
-  }
-
-  .TopCategories{
-    width: 30%;
-  }
-
-  .TopCategories p{
-    width: 50%;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    background-color: var(--bp-line-gray);
-    justify-content: center;
-    height: 100%;
-    border-radius: 0.6rem;
-  }
-
-  section.ContentBox{
-    background-color: var(--bp-white);
-    height: 30rem;
-    margin : 4rem 20rem;
-    padding: 1.5rem 0;
-  }
-
-  .subCategoriesBox{
-    display: flex;
-    margin: 0 5rem;
-    height: 2rem;
-  }
-  
-.subCategories{
-    width: 30%;
+.adminBox {
+  background-color: var(--bp-white);
+  width: 48%;
+  height: 30%;
+  overflow-y: scroll;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.16);
+  margin: 1rem 0;
 }
 
-.subCategories p{
-    width: 50%;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    background-color: var(--bp-line-gray);
-    justify-content: center;
-    height: 100%;
-    border-radius: 0.6rem;
-  }
+/* .webtoontext {
+  border-bottom: 1px solid var(--bp-gray);
+  height: 20%;
+  width: 100%;
+}
 
-  .webtoonBox {
-    display: flex;
-    width:45%;
-    border-bottom: 1px solid var(--bp-gray);
-    padding: 0.6rem 0;
-    margin: 1rem 1rem;
-  }
-  
-  .webtoonInfoWrap {
-    width: 90%;
-    display: flex;
-  }
-  
-  .ImgWrap {
-    width: 35%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .contentWrap {
-    margin: 0;
-    width: 40%;
-    align-self: center;
-  }
+.webtoontext p {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.3rem;
+} */
 
-  .reasonWrap {
-    margin: 0;
-    width: 30%;
-    align-self: center;
-  }
+.webtoontext {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--bp-white);
+  border-bottom: 1px solid var(--bp-gray);
+  height: 20%;
+}
 
-  .reasonWrap {
-    font-size: 0.8rem;
-  }
-  
-  .webtoonButton {
-    width: 10%;
-    align-self: center;
-  }
-  
-  .contentWrap .option {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 0.3rem 0;
-  }
-  
-  .contentWrap p.title {
-    margin-bottom: 0.4rem;
-    font-size: 1.2rem;
-    font-weight: 900;
-  }
-  
-  .contentWrap p.episodetitle {
-    margin-bottom: 0.4rem;
-    font-size: 1rem;
-    font-weight: 900;
-  }
-  
-  .contentWrap .author {
-    margin-bottom: 0.4rem;
-    color: var(--bp-font-gray);
-    font-size: 0.7rem;
-    font-weight: 500;
-  }
-  
-  .contentWrap .option .views {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-right: 1rem;
-  }
-  
-  .contentWrap .option .views p.viewstxt {
-    color: var(--bp-primary);
-    font-size: 0.7rem;
-    font-weight: 400;
-    margin-left: 0.3rem;
-  }
-  
-  .contentWrap .option .likes {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-right: 1rem;
-  }
-  
-  .contentWrap .option .likes p.likestxt {
-    color: var(--bp-secondary);
-    font-size: 0.7rem;
-    font-weight: 400;
-    margin-left: 0.3rem;
-  }
-  
-  .contentWrap p.option2 {
-    width: fit-content;
-    padding: 0.2rem 0.4rem;
-    font-size: 0.5rem;
-    font-weight: 400;
-    background: var(--bp-secondary-glow);
-    color: var(--bp-white);
-    border-radius: 1.5rem;
-    margin-bottom: 0.6rem;
-    height: 1rem;
-  }
-  
-  .contentWrap p.viewmore {
-    color: var(--bp-secondary);
-    font-size: 0.8rem;
-    font-weight: 600;
-  }
-  
-  .HistoryCategory {
-    width: 100%;
-  }
-  
-  .HistoryCategory nav ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .HistoryCategory nav ul li {
-    list-style: none;
-    width: 50%;
-    height: 2rem;
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 500;
-  }
-  
-  .HistoryCategory nav ul li.active {
-    font-weight: 600;
-    color: var(--bp-blue);
-    border-bottom: 0.2rem solid var(--bp-blue);
-  }
-  
-  .chargeBlockBox {
-    display: flex;
-  }
-  
-  .chargeBlockBox p {
-    padding-right: 0.4rem;
-  }
-  
-  .chargeBlockBox p.chargeBoxContent {
-    color: var(--bp-blue);
-  }
-  
-  .Clickactive {
-    display: block;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .NoClickactive {
-    border-bottom: 0.1rem solid var(--bp-gray);
-    display: none;
-    width: 100%;
-  }
-  
-  .subhistorybox {
-    padding-bottom: 1rem;
-  }
-  
-  footer.AuthorFooterWrap {
-    width: 90%;
-    height: 100px;
-    /* background: linear-gradient(180deg, #ffffff00 0%, #ffffff 50%); */
-    position: fixed;
-    bottom: 0rem;
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .footerBtn {
-    width: 80px;
-    height: 80px;
-    background-color: var(--bp-primary);
-    border-radius: 50%;
-    box-shadow: 0px 5px 5px 2px #69d2ff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0.9;
-    filter: contrast(1);
-  }
-  
-  .footerBtn img {
-    width: 30%;
-    height: 30%;
-    filter: brightness(0) invert(1);
-  }
-  
-  .webtoonButton button {
-    width: 100%;
-    margin: 0.5rem 0;
-    border: none;
-    height: 1.5rem;
-  }
-  
+.webtoontext p {
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+
+/* .adminBox {
+  background-color: var(--bp-white);
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+} */
+
+.adminBox::-webkit-scrollbar {
+  display: none;
+}
+
+.subCategoriesBox {
+  display: flex;
+  margin: 0 5rem;
+  height: 2rem;
+}
+
+.subCategories {
+  width: 30%;
+}
+
+.subCategories p {
+  width: 50%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  background-color: var(--bp-line-gray);
+  justify-content: center;
+  height: 100%;
+  border-radius: 0.6rem;
+}
+
+.webtoonBox {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid var(--bp-gray);
+  padding: 1.6rem 1rem;
+  flex-direction: column;
+}
+
+.webtoonInfoWrap {
+  width: 100%;
+  display: flex;
+}
+
+.ImgWrap {
+  width: 40%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.contentWrap {
+  margin: 0;
+  width: 50%;
+  align-self: center;
+}
+
+.reasonWrap {
+  margin: 0;
+  width: 100%;
+  align-self: center;
+  display: flex;
+}
+
+.reasonWrap p {
+  font-size: 0.8rem;
+  margin: 0.5rem 0.5rem;
+}
+
+.webtoonButton {
+  width: 10%;
+  align-self: center;
+}
+
+.contentWrap .option {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0.3rem 0;
+}
+
+.contentWrap p.title {
+  margin-bottom: 0.4rem;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.contentWrap p.episodetitle {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.contentWrap .author {
+  margin-bottom: 0.4rem;
+  color: var(--bp-font-gray);
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.contentWrap .option .views {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 1rem;
+}
+
+.contentWrap .option .views p.viewstxt {
+  color: var(--bp-primary);
+  font-size: 0.7rem;
+  font-weight: 400;
+  margin-left: 0.3rem;
+}
+
+.contentWrap .option .likes {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 1rem;
+}
+
+.contentWrap .option .likes p.likestxt {
+  color: var(--bp-secondary);
+  font-size: 0.7rem;
+  font-weight: 400;
+  margin-left: 0.3rem;
+}
+
+.contentWrap p.option2 {
+  width: fit-content;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.5rem;
+  font-weight: 400;
+  background: var(--bp-secondary-glow);
+  color: var(--bp-white);
+  border-radius: 1.5rem;
+  margin-bottom: 0.6rem;
+  height: 1rem;
+}
+
+.contentWrap p.viewmore {
+  color: var(--bp-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.HistoryCategory {
+  width: 100%;
+  background-color: var(--bp-white);
+  height: 3rem;
+}
+
+.HistoryCategory nav {
+  height: 100%;
+}
+
+.HistoryCategory nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  background-color: var(--bp-white);
+}
+
+.HistoryCategory nav ul li {
+  list-style: none;
+  width: 50%;
+  height: 100%;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: var(--bp-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.HistoryCategory nav ul li.active {
+  font-weight: 600;
+  color: var(--bp-blue);
+  border-bottom: 0.2rem solid var(--bp-blue);
+  background-color: var(--bp-white);
+}
+
+.chargeBlockBox {
+  display: flex;
+}
+
+.chargeBlockBox p {
+  padding-right: 0.4rem;
+}
+
+.chargeBlockBox p.chargeBoxContent {
+  color: var(--bp-blue);
+}
+
+.Clickactive {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.NoClickactive {
+  border-bottom: 0.1rem solid var(--bp-gray);
+  display: none;
+  width: 100%;
+}
+
+.subhistorybox {
+  padding-bottom: 1rem;
+}
+
+footer.AuthorFooterWrap {
+  width: 90%;
+  height: 100px;
+  /* background: linear-gradient(180deg, #ffffff00 0%, #ffffff 50%); */
+  position: fixed;
+  bottom: 0rem;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+}
+
+.footerBtn {
+  width: 80px;
+  height: 80px;
+  background-color: var(--bp-primary);
+  border-radius: 50%;
+  box-shadow: 0px 5px 5px 2px #69d2ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.9;
+  filter: contrast(1);
+}
+
+.footerBtn img {
+  width: 30%;
+  height: 30%;
+  filter: brightness(0) invert(1);
+}
+
+.webtoonButton button {
+  width: 100%;
+  margin: 0.5rem 0;
+  border: none;
+  height: 1.5rem;
+}

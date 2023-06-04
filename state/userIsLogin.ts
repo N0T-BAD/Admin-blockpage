@@ -13,7 +13,7 @@ export default function userIsLogin({ children }: userIsLoginProps) {
     useEffect(() => {
         const accessToken = localStorage.getItem('accessToken') ? true : false
         if (accessToken === false) {
-            router.push('/login')
+            router.push('/')
         } else {
             setaccessToken(accessToken)
         }
