@@ -38,12 +38,12 @@ export default function RequestPage() {
       </div>
 
       {webtoonData.map((category) => (
-        <div className={category.name === active ? `${style.Clickactive}` : `${style.NoClickactive}`}>
+        <div className={category.name === active ? `${style.Clickactive}` : `${style.NoClickactive}`} key={category.id}>
           {
             category.name === '웹툰 수정' ?
               <>
                 {category.webtoonsubcategories && category.webtoonsubcategories.map((subCategory) => (
-                  <div className={style.webtoonBox} onClick={handleEpisodeClick}>
+                  <div className={style.webtoonBox} onClick={handleEpisodeClick} key={subCategory.subCategoryId}>
                     <div className={style.webtoonInfoWrap}>
                       <div className={style.ImgWrap}>
                         <Image src={'/assets/webtoon/image1.png'} alt={'이것이 법이다'} width={140} height={120} />
@@ -70,7 +70,7 @@ export default function RequestPage() {
               category.name === '웹툰 삭제' ?
                 <>
                   {category.webtoonsubcategories && category.webtoonsubcategories.map((subCategory: webtoonsubcategories) => (
-                    <div className={style.webtoonBox}>
+                    <div className={style.webtoonBox} key={subCategory.subCategoryId}>
                       <div className={style.webtoonInfoWrap} onClick={handleEpisodeClick}>
                         <div className={style.ImgWrap}>
                           <Image src={'/assets/webtoon/image1.png'} alt={'이것이 법이다'} width={140} height={120} />
@@ -104,7 +104,7 @@ export default function RequestPage() {
                 category.name === '회차 등록' ?
                   <>
                     {category.episodesubcategories && category.episodesubcategories.map((subCategory) => (
-                      <div className={style.webtoonBox}>
+                      <div className={style.webtoonBox} key={subCategory.id}>
                         <div className={style.webtoonInfoWrap} onClick={handleEpisodeClick}>
                           <div className={style.ImgWrap}>
                             <Image src={'/assets/webtoon/image1.png'} alt={'이것이 법이다'} width={140} height={120} />
@@ -130,7 +130,7 @@ export default function RequestPage() {
                   category.name === '회차 수정' ?
                     <>
                       {category.episodesubcategories && category.episodesubcategories.map((subCategory) => (
-                        <div className={style.webtoonBox}>
+                        <div className={style.webtoonBox} key={subCategory.id}>
                           <div className={style.webtoonInfoWrap} onClick={handleEpisodeClick}>
                             <div className={style.ImgWrap}>
                               <Image src={'/assets/webtoon/image1.png'} alt={'이것이 법이다'} width={140} height={120} />
@@ -156,7 +156,7 @@ export default function RequestPage() {
                     category.name === '회차 삭제' ?
                       <>
                         {category.episodesubcategories && category.episodesubcategories.map((subCategory: episodesubcategories) => (
-                          <div className={style.webtoonBox}>
+                          <div className={style.webtoonBox} key={subCategory.id}>
                             <div className={style.webtoonInfoWrap} onClick={handleEpisodeClick}>
                               <div className={style.ImgWrap}>
                                 <Image src={'/assets/webtoon/image1.png'} alt={'이것이 법이다'} width={140} height={120} />
