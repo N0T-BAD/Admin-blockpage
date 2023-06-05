@@ -4,7 +4,7 @@ import { webtoonData } from '@/data/webtoonData';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
-export default function DeleteWebtoonBox() {
+export default function ChangeEpisodeBox() {
 
   const router = useRouter();
   const { requestId } = router.query;
@@ -21,13 +21,12 @@ export default function DeleteWebtoonBox() {
     router.push("/changeepisode");
   }
 
-
   return (
     <>
       {webtoonData && webtoonData.map((subCategory) => (
         <div className={style.adminBox} key={subCategory.id}>
           <div className={style.webtoontext}>
-            <p>웹툰 삭제 요청</p>
+            <p>회차 수정 요청</p>
           </div>
           {subCategory.webtoonsubcategories && subCategory.webtoonsubcategories.map((info) => (
             <div className={style.webtoonInfoWrap}>
@@ -48,10 +47,8 @@ export default function DeleteWebtoonBox() {
                 <p className={style.title}>{info.title}</p>
                 <p className={style.author}>{info.author}</p>
               </div>
-              <div className={style.webtoonButton}>
-                <button>삭제</button>
-              </div>
             </div>
+
           ))}
         </div>
       ))}

@@ -35,7 +35,7 @@ export default function RequestPage() {
   )
 }
 
-{/* {webtoonData && webtoonData.map((subCategory) => (
+/* {webtoonData && webtoonData.map((subCategory) => (
         <div className={style.adminBox} key={subCategory.id}>
           <div className={style.webtoontext}>
             <p>{subCategory.name}</p>
@@ -130,12 +130,8 @@ export default function RequestPage() {
             </div>
           ))}
         </div>
-<<<<<<< HEAD
-      ))} */}
-=======
       ))}
     </>
 
   )
-}
->>>>>>> e447f6a990735a8622b21d7552fab0aec1628eea
+} */

@@ -8,6 +8,9 @@ import WebtooninfoSection from './requestinfo/WebtooninfoSection';
 import EpisodeInfo from './requestinfo/EpisodeInfo';
 import ChangeWebtoonBox from './request/ChangeWebtoonBox';
 import DeleteWebtoonBox from './request/DeleteWebtoonBox';
+import EpisodeInfoBox from './request/EpisodeInfoBox';
+import DeleteEpisodeBox from './request/DeleteEpisodeBox';
+import ChangeEpisodeBox from './request/ChangeEpisodeBox';
 
 interface MainNavSectionProps {
   requestId: string;
@@ -23,7 +26,9 @@ export default function MainNavSection({ requestId }: MainNavSectionProps) {
         {requestId ?
           requestId === "1" ? <ChangeWebtoonBox /> :
             requestId === "2" ? <DeleteWebtoonBox /> :
-              requestId === "3" ? <ChangeWebtoonBox /> : ""
+              requestId === "3" ? <EpisodeInfoBox /> :
+                requestId === "4" ? <ChangeEpisodeBox /> :
+                  requestId === "5" ? <DeleteEpisodeBox /> : ""
           : router.pathname === "/comments" ?
             <CommentsPage />
             : router.pathname === "/correction" ?

@@ -24,20 +24,36 @@ export default function ChangeWebtoonBox() {
 
   return (
     <>
-      <div className={style.adminBox}>
-        {requestId && UserPathData.map((category) => (
-          <>
-            {category.id === 1 ?
-              <p>안농</p>
-              :
-              category.id === 2 ?
-                <p>구래</p>
-                :
-                <></>
-            }
-          </>
-        ))}
-      </div>
+      {webtoonData && webtoonData.map((subCategory) => (
+        <div className={style.adminBox} key={subCategory.id}>
+          <div className={style.webtoontext}>
+            <p>웹툰 수정 요청</p>
+          </div>
+          {subCategory.webtoonsubcategories && subCategory.webtoonsubcategories.map((info) => (
+            <div className={style.webtoonInfoWrap}>
+              <div className={style.ImgWrap}>
+                <Image src={'/assets/webtoon/image1.png'} alt={'이것이 법이다'} width={120} height={100} />
+              </div>
+              <div className={style.contentWrap}>
+                <div className={style.option}>
+                  <div className={style.views}>
+                    <Image src={'/assets/images/icons/views.svg'} alt={'조회 수'} width={15} height={15} />
+                    <p className={style.viewstxt}>{info.views}</p>
+                  </div>
+                  <div className={style.likes}>
+                    <Image src={'/assets/images/icons/likes.svg'} alt={'좋아요 수'} width={12} height={12} />
+                    <p className={style.likestxt}>{info.likes}</p>
+                  </div>
+                </div>
+                <p className={style.title}>{info.title}</p>
+                <p className={style.author}>{info.author}</p>
+              </div>
+            </div>
+
+          ))}
+        </div>
+      ))}
+
       {/* {webtoonData && webtoonData.map((subCategory) => (
         <div className={style.adminBox} key={subCategory.id}>
           <div className={style.webtoontext}>
