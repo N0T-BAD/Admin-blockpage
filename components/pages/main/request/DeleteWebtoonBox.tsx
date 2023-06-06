@@ -36,7 +36,7 @@ export default function DeleteWebtoonBox() {
         <div className={style.webtoontext}>
           <p>웹툰 삭제 요청</p>
         </div>
-        {webtoonData.data && webtoonData.data.map((subCategory) => (
+        {webtoonData.data && webtoonData.data.demandView.map((subCategory) => (
           <div className={style.webtoonInfoWrap} key={subCategory.webtoonId} onClick={() => handleWebtoonClick(subCategory.webtoonId)}>
             <div className={style.ImgWrap}>
               <Image src={subCategory.main} alt={'이것이 법이다'} width={120} height={100} />

@@ -34,7 +34,7 @@ export default function DeleteEpisodeBox() {
         <div className={style.webtoontext}>
           <p>회차 삭제 요청</p>
         </div>
-        {episodeData.data && episodeData.data.map((subCategory) => (
+        {episodeData.data && episodeData.data.demandView.map((subCategory) => (
           <div className={style.webtoonInfoWrap} key={subCategory.episodeId} onClick={() => handleWebtoonClick(subCategory.episodeId)}>
             <div className={style.ImgWrap}>
               <Image src={subCategory.thumbnail} alt={subCategory.episodeTitle} width={120} height={100} />

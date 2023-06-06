@@ -50,25 +50,61 @@ export interface WebtoonStateType {
   }]
 }
 
-export interface episodeStateType {
-  data: [{
+export interface WebtoonDetailType {
+  data: {
     webtoonId: number;
-    episodeId: number;
-    episodeTitle: string;
-    uploadDate: string;
-    authorWords: string;
-    thumbnail: string;
-  }]
-}
-
-export interface WebtoonModifyType {
-  data: [{
-    webtoonId: 0;
     webtoonTitle: string;
     webtoonDescription: string;
     genre: string;
     publicationDays: string;
-    main: string;
-    thumbnail: string;
-  }]
+    creator: string;
+    creatorId: string;
+    illustrator: string;
+    webtoonMainImage: string;
+    webtoonThumbnail: string;
+  }
+}
+
+export interface episodeStateType {
+  data: {
+    demandView: [{
+      webtoonId: number;
+      episodeId: number;
+      episodeTitle: string;
+      uploadDate: string;
+      authorWords: string;
+      thumbnail: string;
+    }]
+    totalSize: number;
+  }
+}
+
+export interface episodeDetailType {
+  data: {
+    episodeId: number;
+    episodeTitle: string;
+    episodeNumber: number;
+    author: string;
+    uploadDate: string;
+    authorWords: string;
+    episodeThumbnail: string;
+    images: [{
+      imageUrl: string;
+    }]
+  }
+}
+
+export interface WebtoonModifyType {
+  data: {
+    demandView: [{
+      webtoonId: number;
+      webtoonTitle: string;
+      webtoonDescription: string;
+      genre: string;
+      publicationDays: string;
+      main: string;
+      thumbnail: string;
+    }],
+    totalSize: number;
+  }
 }

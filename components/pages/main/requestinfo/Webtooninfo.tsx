@@ -1,4 +1,4 @@
-import { CreatorName, WebtoonStateType, CreatorEmail } from '@/types/webtoon/webtoonDataType';
+import { CreatorName, WebtoonStateType, CreatorEmail, WebtoonDetailType } from '@/types/webtoon/webtoonDataType';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import style from '@/components/pages/main/requestinfo/Webtooninfo.module.css'
@@ -25,69 +25,40 @@ export default function Webtooninfo() {
     }
   })
 
-  const [webtooninfo, setWebtoonInfo] = useState<WebtoonStateType>(
+  const [webtooninfo, setWebtoonInfo] = useState<WebtoonDetailType>(
     {
-      data: [{
+      data: {
         webtoonId: 0,
         webtoonTitle: '',
         webtoonDescription: '',
         genre: '',
         publicationDays: '',
         creator: '',
+        creatorId: '',
         illustrator: '',
         webtoonMainImage: '',
         webtoonThumbnail: '',
-      }],
+      }
     }
   );
 
   useEffect(() => {
-    axios.get(`${baseUrl}/webtoon-service/v1/webtoons/${webtoonId}`)
+    axios.get(`${baseUrl}/webtoon-service/v1/webtoons/detail?webtoonId=${webtoonId}`)
       .then((res) => {
-        setCreatorName({
+        setWebtoonInfo({
           data: res.data.data,
         })
-        axios.get(`http://localhost:8082/member-service/v1/members?type=author&creator=${creatorName}`)
-          .then((res) => {
-            console.log(res.data.data)
-            setCreatorEmail({
-              data: res.data.data
-            })
-            axios.get(`${baseUrl}/webtoon-service/v1/webtoons/creator`,
-              {
-                headers: {
-                  memberId: CreatorEmail.data.email,
-                  // role: role,
-                },
-              })
-              .then((res) => {
-                setWebtoonInfo({
-                  data: res.data.data,
-                })
-                console.log(res.data.data)
-                // console.log(webtoonData)
-                // const selectedWebtoon = res.data.data.find((webtoon: any) => webtoon.webtoonId === Number(webtoonId));
-                // if (selectedWebtoon) {
-                //   setAuthorName({
-                //     data: selectedWebtoon.creator,
-                //   });
-                // }
-                // console.log(authorName)
-              })
-              .catch((err) => {
-                console.log(err)
-              })
-          })
+        console.log(res.data.data)
       })
-
-
-
+      .catch((err) => {
+        console.log(err)
+      })
   }, [])
 
   const handleAccept = () => {
     axios.post(`${baseUrl}/webtoon-service/v1/demands?target=webtoon&type=modify&whether=accept&webtoonId=${webtoonId}`, {
       header: {
-        memberId: session?.email || '',
+        memberId: webtooninfo.data.creatorId
       },
     })
       .then((res) => {
@@ -99,7 +70,7 @@ export default function Webtooninfo() {
   const handleRefuse = () => {
     axios.post(`${baseUrl}/webtoon-service/v1/demands?target=webtoon&type=modify&whether=refuse&webtoonId=${webtoonId}`, {
       header: {
-        memberId: session?.email || '',
+        memberId: webtooninfo.data.creatorId
       },
     })
       .then((res) => {
@@ -110,40 +81,40 @@ export default function Webtooninfo() {
 
   return (
     <div className={style.adminBox}>
-      {webtooninfo.data.map((webtoon) => (
-        webtoon.webtoonId === Number(webtoonId) && (
-          <div className={style.WebtoonInfoWrap} key={webtoon.webtoonId}>
+      {webtooninfo.data &&
+        webtooninfo.data.webtoonId === Number(webtoonId) && (
+          <div className={style.WebtoonInfoWrap} key={webtooninfo.data.webtoonId}>
             <p className={style.webtooninfotitle}>웹툰 수정</p>
             <div className={style.InfoBox}>
               <p>작품명 : </p>
-              <p className={style.infotxt}>{webtoon.webtoonTitle}</p>
+              <p className={style.infotxt}>{webtooninfo.data.webtoonTitle}</p>
             </div>
             <div className={style.InfoBox}>
               <p>줄거리 : </p>
-              <p className={style.infotxt}>{webtoon.webtoonDescription}</p>
+              <p className={style.infotxt}>{webtooninfo.data.webtoonDescription}</p>
             </div>
             <div className={style.InfoBox}>
               <p>장르 : </p>
-              <p className={style.infotxt}>{webtoon.genre}</p>
+              <p className={style.infotxt}>{webtooninfo.data.genre}</p>
             </div>
             <div className={style.InfoBox}>
               <p>요일 : </p>
-              <p className={style.infotxt}>{webtoon.publicationDays}</p>
+              <p className={style.infotxt}>{webtooninfo.data.publicationDays}</p>
             </div>
             <div className={style.InfoBox}>
               <p>작가 : </p>
-              <p className={style.infotxt}>{webtoon.creator}</p>
+              <p className={style.infotxt}>{webtooninfo.data.creator}</p>
             </div>
             <div className={style.InfoillustratorBox}>
               <p>일러스트레이터 : </p>
-              <p className={style.infotxt}>{webtoon.illustrator}</p>
+              <p className={style.infotxt}>{webtooninfo.data.illustrator}</p>
             </div>
             <div className={style.InfoImgBox}>
               <div className={style.labelBox}>
                 <p>메인 이미지</p>
               </div>
               <div className={style.ImageBox}>
-                <Image src={webtoon.webtoonMainImage} alt="WebtoonMainImagePreview" width={200} height={200} />
+                <Image src={webtooninfo.data.webtoonMainImage} alt="WebtoonMainImagePreview" width={200} height={200} />
               </div>
             </div>
             <div className={style.InfoImgBox}>
@@ -151,7 +122,7 @@ export default function Webtooninfo() {
                 <p>썸네일 이미지</p>
               </div>
               <div className={style.ImageBox}>
-                <Image src={webtoon.webtoonThumbnail} alt="WebtoonThumbnailImagePreview" width={200} height={200} />
+                <Image src={webtooninfo.data.webtoonThumbnail} alt="WebtoonThumbnailImagePreview" width={200} height={200} />
               </div>
             </div>
             <div className={style.submit}>
@@ -159,7 +130,7 @@ export default function Webtooninfo() {
               <button onClick={handleRefuse}>거부</button>
             </div>
           </div>
-        )))}
+        )}
     </div>
   )
 }

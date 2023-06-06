@@ -3,7 +3,7 @@ import WebtooninfoSection from "@/components/pages/main/requestinfo/WebtooninfoS
 import { NextPageWithLayout } from "@/pages/_app"
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher"
 
-const Correction: NextPageWithLayout = () => {
+const Modify: NextPageWithLayout = () => {
 
     return (
         <>
@@ -12,7 +12,7 @@ const Correction: NextPageWithLayout = () => {
     )
 }
 
-Correction.getLayout = function getLayout(page: React.ReactElement) {
+Modify.getLayout = function getLayout(page: React.ReactElement) {
     return (
         <Layout>
             {page}
@@ -20,7 +20,7 @@ Correction.getLayout = function getLayout(page: React.ReactElement) {
     )
 }
 
-export default Correction
+export default Modify
 
 
 

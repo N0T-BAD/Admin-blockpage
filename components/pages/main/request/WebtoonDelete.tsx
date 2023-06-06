@@ -1,4 +1,4 @@
-import { WebtoonStateType } from '@/types/webtoon/webtoonDataType';
+import { WebtoonDetailType, WebtoonStateType } from '@/types/webtoon/webtoonDataType';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import style from '@/components/pages/main/requestinfo/Webtooninfo.module.css'
@@ -10,46 +10,32 @@ export default function WebtoonDelete() {
 
   const router = useRouter();
   const { baseUrl } = Config();
-  const { requestId } = router.query;
   const { webtoonId } = router.query;
 
-  const [webtoonDelete, setWebtoonDelete] = useState<WebtoonStateType>(
+  const [webtoonDelete, setWebtoonDelete] = useState<WebtoonDetailType>(
     {
-      data: [{
+      data: {
         webtoonId: 0,
         webtoonTitle: '',
         webtoonDescription: '',
         genre: '',
         publicationDays: '',
         creator: '',
+        creatorId: '',
         illustrator: '',
         webtoonMainImage: '',
         webtoonThumbnail: '',
-      }],
+      },
     }
   );
 
   useEffect(() => {
-    axios.get("https://blockpage.site/webtoon-service/v1/webtoons/creator",
-      {
-        headers: {
-          memberId: session?.email || '',
-          // role: role,
-        },
-      })
+    axios.get(`${baseUrl}/webtoon-service/v1/webtoons/detail?webtoonId=${webtoonId}`)
       .then((res) => {
         setWebtoonDelete({
           data: res.data.data,
         })
         console.log(res.data.data)
-        // console.log(webtoonData)
-        // const selectedWebtoon = res.data.data.find((webtoon: any) => webtoon.webtoonId === Number(webtoonId));
-        // if (selectedWebtoon) {
-        //   setAuthorName({
-        //     data: selectedWebtoon.creator,
-        //   });
-        // }
-        // console.log(authorName)
       })
       .catch((err) => {
         console.log(err)
@@ -59,7 +45,7 @@ export default function WebtoonDelete() {
   const handleAccept = () => {
     axios.post(`${baseUrl}/webtoon-service/v1/demands?target=webtoon&type=remove&whether=accept&webtoonId=${webtoonId}`, {
       header: {
-        memberId: session?.email || '',
+        memberId: webtoonDelete.data.creatorId
       },
     })
       .then((res) => {
@@ -71,7 +57,7 @@ export default function WebtoonDelete() {
   const handleRefuse = () => {
     axios.post(`${baseUrl}/webtoon-service/v1/demands?target=webtoon&type=remove&whether=refuse&webtoonId=${webtoonId}`, {
       header: {
-        memberId: session?.email || '',
+        memberId: webtoonDelete.data.creatorId
       },
     })
       .then((res) => {
@@ -82,40 +68,40 @@ export default function WebtoonDelete() {
 
   return (
     <div className={style.adminBox}>
-      {webtoonDelete.data.map((webtoon) => (
-        webtoon.webtoonId === Number(webtoonId) && (
-          <div className={style.WebtoonInfoWrap} key={webtoon.webtoonId}>
-            <p className={style.webtooninfotitle}>웹툰 삭제</p>
+      {webtoonDelete.data &&
+        webtoonDelete.data.webtoonId === Number(webtoonId) && (
+          <div className={style.WebtoonInfoWrap} key={webtoonDelete.data.webtoonId}>
+            <p className={style.webtooninfotitle}>웹툰 수정</p>
             <div className={style.InfoBox}>
               <p>작품명 : </p>
-              <p className={style.infotxt}>{webtoon.webtoonTitle}</p>
+              <p className={style.infotxt}>{webtoonDelete.data.webtoonTitle}</p>
             </div>
             <div className={style.InfoBox}>
               <p>줄거리 : </p>
-              <p className={style.infotxt}>{webtoon.webtoonDescription}</p>
+              <p className={style.infotxt}>{webtoonDelete.data.webtoonDescription}</p>
             </div>
             <div className={style.InfoBox}>
               <p>장르 : </p>
-              <p className={style.infotxt}>{webtoon.genre}</p>
+              <p className={style.infotxt}>{webtoonDelete.data.genre}</p>
             </div>
             <div className={style.InfoBox}>
               <p>요일 : </p>
-              <p className={style.infotxt}>{webtoon.publicationDays}</p>
+              <p className={style.infotxt}>{webtoonDelete.data.publicationDays}</p>
             </div>
             <div className={style.InfoBox}>
               <p>작가 : </p>
-              <p className={style.infotxt}>{webtoon.creator}</p>
+              <p className={style.infotxt}>{webtoonDelete.data.creator}</p>
             </div>
             <div className={style.InfoillustratorBox}>
               <p>일러스트레이터 : </p>
-              <p className={style.infotxt}>{webtoon.illustrator}</p>
+              <p className={style.infotxt}>{webtoonDelete.data.illustrator}</p>
             </div>
             <div className={style.InfoImgBox}>
               <div className={style.labelBox}>
                 <p>메인 이미지</p>
               </div>
               <div className={style.ImageBox}>
-                <Image src={webtoon.webtoonMainImage} alt="WebtoonMainImagePreview" width={200} height={200} />
+                <Image src={webtoonDelete.data.webtoonMainImage} alt="WebtoonMainImagePreview" width={200} height={200} />
               </div>
             </div>
             <div className={style.InfoImgBox}>
@@ -123,7 +109,7 @@ export default function WebtoonDelete() {
                 <p>썸네일 이미지</p>
               </div>
               <div className={style.ImageBox}>
-                <Image src={webtoon.webtoonThumbnail} alt="WebtoonThumbnailImagePreview" width={200} height={200} />
+                <Image src={webtoonDelete.data.webtoonThumbnail} alt="WebtoonThumbnailImagePreview" width={200} height={200} />
               </div>
             </div>
             <div className={style.submit}>
@@ -131,7 +117,7 @@ export default function WebtoonDelete() {
               <button onClick={handleRefuse}>거부</button>
             </div>
           </div>
-        )))}
+        )}
     </div>
   )
 }
