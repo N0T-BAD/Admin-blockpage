@@ -1,18 +1,18 @@
 import Layout from "@/components/layouts/layout"
-import WebtooninfoSection from "@/components/pages/main/requestinfo/WebtooninfoSection";
+import WebtoonDeleteSection from "@/components/pages/main/requestinfo/WebtoonDeleteSection";
 import { NextPageWithLayout } from "@/pages/_app"
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher"
 
-const Correction: NextPageWithLayout = () => {
+const WebtoonDelete: NextPageWithLayout = () => {
 
     return (
         <>
-            <WebtooninfoSection />
+            <WebtoonDeleteSection />
         </>
     )
 }
 
-Correction.getLayout = function getLayout(page: React.ReactElement) {
+WebtoonDelete.getLayout = function getLayout(page: React.ReactElement) {
     return (
         <Layout>
             {page}
@@ -20,7 +20,7 @@ Correction.getLayout = function getLayout(page: React.ReactElement) {
     )
 }
 
-export default Correction
+export default WebtoonDelete
 
 
 

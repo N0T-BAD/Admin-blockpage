@@ -1,4 +1,4 @@
-import { CreatorName, WebtoonStateType, CreatorEmail } from '@/types/webtoon/webtoonDataType';
+import { WebtoonStateType } from '@/types/webtoon/webtoonDataType';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import style from '@/components/pages/main/requestinfo/Webtooninfo.module.css'
@@ -6,26 +6,14 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Config from '@/configs/config.export';
 
-export default function Webtooninfo() {
+export default function WebtoonDelete() {
 
   const router = useRouter();
   const { baseUrl } = Config();
   const { requestId } = router.query;
   const { webtoonId } = router.query;
 
-  const [creatorName, setCreatorName] = useState<CreatorName>({
-    data: [{
-      creator: '',
-    }]
-  })
-
-  const [CreatorEmail, setCreatorEmail] = useState<CreatorEmail>({
-    data: {
-      email: '',
-    }
-  })
-
-  const [webtooninfo, setWebtoonInfo] = useState<WebtoonStateType>(
+  const [webtoonDelete, setWebtoonDelete] = useState<WebtoonStateType>(
     {
       data: [{
         webtoonId: 0,
@@ -42,50 +30,34 @@ export default function Webtooninfo() {
   );
 
   useEffect(() => {
-    axios.get(`${baseUrl}/webtoon-service/v1/webtoons/${webtoonId}`)
+    axios.get("https://blockpage.site/webtoon-service/v1/webtoons/creator",
+      {
+        headers: {
+          memberId: session?.email || '',
+          // role: role,
+        },
+      })
       .then((res) => {
-        setCreatorName({
+        setWebtoonDelete({
           data: res.data.data,
         })
-        axios.get(`http://localhost:8082/member-service/v1/members?type=author&creator=${creatorName}`)
-          .then((res) => {
-            console.log(res.data.data)
-            setCreatorEmail({
-              data: res.data.data
-            })
-            axios.get(`${baseUrl}/webtoon-service/v1/webtoons/creator`,
-              {
-                headers: {
-                  memberId: CreatorEmail.data.email,
-                  // role: role,
-                },
-              })
-              .then((res) => {
-                setWebtoonInfo({
-                  data: res.data.data,
-                })
-                console.log(res.data.data)
-                // console.log(webtoonData)
-                // const selectedWebtoon = res.data.data.find((webtoon: any) => webtoon.webtoonId === Number(webtoonId));
-                // if (selectedWebtoon) {
-                //   setAuthorName({
-                //     data: selectedWebtoon.creator,
-                //   });
-                // }
-                // console.log(authorName)
-              })
-              .catch((err) => {
-                console.log(err)
-              })
-          })
+        console.log(res.data.data)
+        // console.log(webtoonData)
+        // const selectedWebtoon = res.data.data.find((webtoon: any) => webtoon.webtoonId === Number(webtoonId));
+        // if (selectedWebtoon) {
+        //   setAuthorName({
+        //     data: selectedWebtoon.creator,
+        //   });
+        // }
+        // console.log(authorName)
       })
-
-
-
+      .catch((err) => {
+        console.log(err)
+      })
   }, [])
 
   const handleAccept = () => {
-    axios.post(`${baseUrl}/webtoon-service/v1/demands?target=webtoon&type=modify&whether=accept&webtoonId=${webtoonId}`, {
+    axios.post(`${baseUrl}/webtoon-service/v1/demands?target=webtoon&type=remove&whether=accept&webtoonId=${webtoonId}`, {
       header: {
         memberId: session?.email || '',
       },
@@ -97,7 +69,7 @@ export default function Webtooninfo() {
   }
 
   const handleRefuse = () => {
-    axios.post(`${baseUrl}/webtoon-service/v1/demands?target=webtoon&type=modify&whether=refuse&webtoonId=${webtoonId}`, {
+    axios.post(`${baseUrl}/webtoon-service/v1/demands?target=webtoon&type=remove&whether=refuse&webtoonId=${webtoonId}`, {
       header: {
         memberId: session?.email || '',
       },
@@ -110,10 +82,10 @@ export default function Webtooninfo() {
 
   return (
     <div className={style.adminBox}>
-      {webtooninfo.data.map((webtoon) => (
+      {webtoonDelete.data.map((webtoon) => (
         webtoon.webtoonId === Number(webtoonId) && (
           <div className={style.WebtoonInfoWrap} key={webtoon.webtoonId}>
-            <p className={style.webtooninfotitle}>웹툰 수정</p>
+            <p className={style.webtooninfotitle}>웹툰 삭제</p>
             <div className={style.InfoBox}>
               <p>작품명 : </p>
               <p className={style.infotxt}>{webtoon.webtoonTitle}</p>

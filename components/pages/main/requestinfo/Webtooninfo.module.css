@@ -1,12 +1,12 @@
 .adminBox {
   background-color: var(--bp-white);
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
+  /* width: 100%;
+  height: 100%; */
+  /* overflow-y: scroll; */
   display: flex;
-  padding: 0.5rem 0.5rem;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  width: 100%;
+  /* justify-content: space-between; */
+  /* flex-wrap: wrap; */
 }
 
 .adminBox::-webkit-scrollbar {
@@ -24,6 +24,7 @@ p.webtooninfotitle {
   justify-content: center;
   font-size: 2rem;
   font-weight: 600;
+  margin : 1rem 0;
 }
 
 .InfoBox {

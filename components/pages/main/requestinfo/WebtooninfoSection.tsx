@@ -3,7 +3,6 @@ import style from '@/components/pages/main/requestinfo/WebtooninfoSection.module
 import Webtooninfo from './Webtooninfo'
 
 export default function WebtooninfoSection() {
-
     return (
         <section className={style.webtooninfosection}>
             <Webtooninfo />

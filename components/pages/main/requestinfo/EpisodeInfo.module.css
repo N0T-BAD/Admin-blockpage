@@ -24,6 +24,7 @@ p.episodeinfotitle {
   justify-content: center;
   font-size: 2rem;
   font-weight: 600;
+  margin: 1rem 0;
 }
 
 .InfoBox {
