@@ -24,6 +24,7 @@ header.headerWrap {
   width: 15%;
   flex-direction: column;
   position: fixed;
+  z-index: 100;
 }
 
 .adminnamebox{
@@ -65,4 +66,43 @@ section.MainNavSection {
   background-color: var(--bp-dark-gray);
   color: var(--bp-white);
   font-size: 0.9rem;
+}
+
+.megaMenu {
+  position: absolute;
+  left: -300px;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease;
+  z-index: 102;
+}
+
+.megaMenu .logo{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.megaMenu.show {
+  left: 0; /* 왼쪽으로 이동하여 보임 */
+}
+
+.megaMenu.noshow {
+  left: -250; /* 왼쪽으로 이동하여 보임 */
+}
+
+p.megaMenuItem{
+  width: 100%;
+  text-align: center;
+  margin:1rem 0;
+}
+
+button.backbtn{
+  border: none;
+  background-color: var(--bp-white);
+  margin: 1rem 1rem 0 1rem;
 }

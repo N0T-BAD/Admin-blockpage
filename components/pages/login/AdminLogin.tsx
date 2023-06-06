@@ -11,7 +11,11 @@ import Config from '@/configs/config.export';
 
 axios.defaults.withCredentials = true;
 
-export default function AdminLogin() {
+interface RequestListProps {
+  requestId: string;
+}
+
+export default function AdminLogin({ requestId }: RequestListProps) {
 
   const router = useRouter();
   const { baseUrl } = Config();
@@ -54,7 +58,7 @@ export default function AdminLogin() {
           text: `${res.data}님 환영합니다~ ^^`,
         })
         console.log(res);
-        router.push("/request");
+        router.push(`/request/${requestId}`);
       })
         .catch(err => {
           Swal.fire({
