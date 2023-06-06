@@ -90,16 +90,16 @@ export default function EpisodeDelete() {
                 <Image src={episode.data.episodeThumbnail} alt={"thumbnailImage"} width={200} height={200} />
               </div>
             </div>
-            {episode.data.images.map((episode) => (
-              <div className={style.InfoImgBox}>
-                <div className={style.labelBox}>
-                  <p>에피소드 이미지 </p>
-                </div>
-                <div className={style.episodeimg}>
+            <div className={style.InfoImgBox} >
+              <div className={style.labelBox}>
+                <p>에피소드 이미지 </p>
+              </div>
+              {episode.data.images.map((episode) => (
+                <div className={style.episodeimg} key={episode.imageUrl}>
                   <Image src={episode.imageUrl} alt={"edisodeImage"} width={200} height={200} />
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
             <div className={style.submit}>
               <button onClick={handleAccept}>승인</button>
               <button onClick={handleRefuse}>거부</button>
