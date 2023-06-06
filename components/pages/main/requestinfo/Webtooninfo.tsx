@@ -4,10 +4,14 @@ import React, { useEffect, useState } from 'react'
 import style from '@/components/pages/main/requestinfo/Webtooninfo.module.css'
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import Config from '@/configs/config.export';
 
 export default function Webtooninfo() {
 
     const router = useRouter();
+    const { baseUrl } = Config();
+    const { requestId } = router.query;
+    const { webtoonId } = router.query;
 
     const [webtooninfo, setWebtoonInfo] = useState<WebtoonStateType>(
         {
@@ -31,17 +35,14 @@ export default function Webtooninfo() {
     }, [])
 
     const handleApproval = () => {
-        axios.post('api', {
-            title: webtooninfo.title,
-            description: webtooninfo.description,
-            genre: webtooninfo.genre,
-            day: webtooninfo.day,
-            author: webtooninfo.author,
-            illustrator: webtooninfo.illustrator,
-            mainImageData: webtooninfo.mainImageData,
-            thumbnailImageData: webtooninfo.thumbnailImageData,
-            ask: true,
-        })
+        axios.post(`${baseUrl}/webtoon-service/v1/demands?target=webtoon&type=modify&whether=accept&webtoonId=${webtoonId}`, {
+            webtoonId: webtoonId,
+        },
+            {
+                headers: {
+
+                }
+            })
             .then((res) => {
                 console.log(res)
                 router.push("/request")

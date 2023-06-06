@@ -19,6 +19,7 @@ interface MainNavSectionProps {
 export default function MainNavSection({ requestId }: MainNavSectionProps) {
 
   const router = useRouter();
+  const { WebtoonId } = router.query;
 
   return (
     <>
@@ -31,13 +32,11 @@ export default function MainNavSection({ requestId }: MainNavSectionProps) {
                   requestId === "5" ? <DeleteEpisodeBox /> : ""
           : router.pathname === "/comments" ?
             <CommentsPage />
-            : router.pathname === "/correction" ?
-              <WebtooninfoSection />
-              : router.pathname === "/episode" ?
+            : router.pathname === "/episode" ?
+              <EpisodeInfo />
+              : router.pathname === "/changeepisode" ?
                 <EpisodeInfo />
-                : router.pathname === "/changeepisode" ?
-                  <EpisodeInfo />
-                  : ""
+                : ""
         }
       </section>
     </>
