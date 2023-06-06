@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react'
 import style from '@/components/pages/main/requestinfo/EpisodeInfo.module.css'
 import Config from '@/configs/config.export';
 
-export default function EpisodeInfo() {
+export default function EpisodeDelete() {
 
   const { baseUrl } = Config();
   const router = useRouter();
@@ -29,15 +29,14 @@ export default function EpisodeInfo() {
     }
   );
 
-  useEffect(() => {
-    axios.get(`${baseUrl}/webtoon-service/v1/episodes/${episodeId}`)
-      .then((res) => {
-        setEpisode(res.data)
-      })
-  }, [])
+  // useEffect(() => {
+  //   axios.get('api')
+  //     .then(res => res.data)
+  //     .then(data => setEpisode(data))
+  // }, [])
 
   const handleAccept = () => {
-    axios.post(`${baseUrl}/webtoon-service/v1/demands?target=episode&type=enroll&whether=accept&episodeId=${episodeId}`, {
+    axios.post(`${baseUrl}/webtoon-service/v1/demands?target=episode&type=remove&whether=accept&episodeId=${episodeId}`, {
       header: {
         memberId: episode.data.author
       },
@@ -49,7 +48,7 @@ export default function EpisodeInfo() {
   }
 
   const handleRefuse = () => {
-    axios.post(`${baseUrl}/webtoon-service/v1/demands?target=episode&type=enroll&whether=refuse&episodeId=${episodeId}`, {
+    axios.post(`${baseUrl}/webtoon-service/v1/demands?target=episode&type=remove&whether=refuse&episodeId=${episodeId}`, {
       header: {
         memberId: episode.data.author
       },

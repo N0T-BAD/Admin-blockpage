@@ -4,10 +4,14 @@ import Image from 'next/image'
 import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 import style from '@/components/pages/main/MainNavSection.module.css'
+import { UserPathData } from '@/data/MainTopNavData';
+import ChangeWebtoonBox from './request/ChangeWebtoonBox';
 
 export default function RequestPage() {
 
   const router = useRouter();
+
+  const { requestId } = router.query;
 
   const handleWebtoonClick = () => {
     router.push("/correction");
@@ -23,7 +27,15 @@ export default function RequestPage() {
 
   return (
     <>
-      {webtoonData && webtoonData.map((subCategory) => (
+
+      {requestId &&
+        <ChangeWebtoonBox />
+      }
+    </>
+  )
+}
+
+/* {webtoonData && webtoonData.map((subCategory) => (
         <div className={style.adminBox} key={subCategory.id}>
           <div className={style.webtoontext}>
             <p>{subCategory.name}</p>
@@ -122,4 +134,4 @@ export default function RequestPage() {
     </>
 
   )
-}
+} */

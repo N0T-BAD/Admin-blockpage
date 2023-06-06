@@ -48,7 +48,7 @@
 
 html,
 body {
-  overflow-x: hidden;
+  overflow-x:visible;
   background-color: var(--bp-gray);
   margin: 0;
 }
