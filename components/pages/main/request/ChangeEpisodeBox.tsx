@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import style from '@/components/pages/main/request/ChangeWebtoonBox.module.css'
-import { webtoonData } from '@/data/webtoonData';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import axios from 'axios';

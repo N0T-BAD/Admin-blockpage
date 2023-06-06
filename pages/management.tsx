@@ -1,21 +1,20 @@
 import Layout from "@/components/layouts/layout"
-import MainNavSection from "@/components/pages/main/MainNavSection"
 import { NextPageWithLayout } from "@/pages/_app"
 
-const management: NextPageWithLayout = () => {
-    return (
-        <>
-            <MainNavSection />
-        </>
-    )
+const Management: NextPageWithLayout = () => {
+  return (
+    <>
+
+    </>
+  )
 }
 
-management.getLayout = function getLayout(management: React.ReactElement) {
-    return (
-        <Layout>
-            {management}
-        </Layout>
-    )
+Management.getLayout = function getLayout(page: React.ReactElement) {
+  return (
+    <Layout>
+      {page}
+    </Layout>
+  )
 }
 
-export default management
+export default Management
