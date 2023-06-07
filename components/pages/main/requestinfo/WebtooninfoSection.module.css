@@ -1,4 +1,54 @@
-section.webtooninfosection {
+/* section.webtooninfosection {
     margin: 2rem, 0;
     width: 100%;
+}
+
+section.webtoondeletesection {
+    margin: 2rem, 0;
+    width: 100%;
+} */
+
+section.webtooninfosection {
+    margin: 0 5rem;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%;
+  }
+
+  section.webtoondeletesection {
+    margin: 0 5rem;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+section.episodeenrollsection {
+    margin: 0 5rem;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+section.episodemodifysection {
+    margin: 0 5rem;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+section.episodedeletesection {
+    margin: 0 5rem;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%;
 }

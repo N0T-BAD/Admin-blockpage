@@ -1,15 +1,20 @@
 import AdminLoginSection from "@/components/pages/login/AdminLoginSection"
 import { NextPageWithLayout } from "@/pages/_app"
 
-const login: NextPageWithLayout = () => {
+interface RequestListProps {
+  requestId: string;
+}
+
+const Login: NextPageWithLayout<RequestListProps> = ({ requestId }) => {
+
   return (
     <>
-      <AdminLoginSection />
+      <AdminLoginSection requestId={requestId} />
     </>
   )
 }
 
-login.getLayout = function getLayout(page: React.ReactElement) {
+Login.getLayout = function getLayout(page: React.ReactElement) {
   return (
     <>
       {page}
@@ -17,5 +22,5 @@ login.getLayout = function getLayout(page: React.ReactElement) {
   )
 }
 
-export default login
+export default Login
 

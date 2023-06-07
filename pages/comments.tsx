@@ -2,20 +2,24 @@ import Layout from "@/components/layouts/layout"
 import MainNavSection from "@/components/pages/main/MainNavSection"
 import { NextPageWithLayout } from "@/pages/_app"
 
-const comments: NextPageWithLayout = () => {
-    return (
-        <>
-            <MainNavSection />
-        </>
-    )
+interface MainNavSectionProps {
+  requestId: string;
 }
 
-comments.getLayout = function getLayout(comments: React.ReactElement) {
-    return (
-        <Layout>
-            {comments}
-        </Layout>
-    )
+const Comments: NextPageWithLayout<MainNavSectionProps> = ({ requestId }) => {
+  return (
+    <>
+      <MainNavSection requestId={requestId} />
+    </>
+  )
 }
 
-export default comments
+Comments.getLayout = function getLayout(page: React.ReactElement) {
+  return (
+    <Layout>
+      {page}
+    </Layout>
+  )
+}
+
+export default Comments

@@ -58,7 +58,7 @@ export default function Header() {
               <Image src={'/assets/images/logo/logo.svg'} alt="logo" width={150} height={77} onClick={handlemain} />
             </div>
             {UserPathData.map((category) => (
-              <div onClick={() => handleAuthor(category.id)}>
+              <div onClick={() => handleAuthor(category.id)} key={category.id}>
                 <p className={style.megaMenuItem} key={category.id}>{category.name}</p>
               </div>
             ))}

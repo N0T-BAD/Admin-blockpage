@@ -2,10 +2,14 @@ import React from 'react'
 import style from '@/components/pages/login/AdminLoginSection.module.css'
 import AdminLogin from '@/components/pages/login/AdminLogin'
 
-export default function AdminLoginSection() {
+interface RequestListProps {
+    requestId: string;
+}
+
+export default function AdminLoginSection({ requestId }: RequestListProps) {
     return (
         <section className={style.AdminLoginSection}>
-            <AdminLogin />
+            <AdminLogin requestId={requestId} />
         </section>
     )
 }
