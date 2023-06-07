@@ -24,18 +24,6 @@ export interface episodesubcategories {
   reason?: string;
 }
 
-export interface CreatorName {
-  data: [{
-    creator: string;
-  }]
-}
-
-export interface CreatorEmail {
-  data: {
-    email: string;
-  }
-}
-
 export interface WebtoonStateType {
   data: [{
     webtoonId: number;
@@ -55,8 +43,8 @@ export interface WebtoonDetailType {
     webtoonId: number;
     webtoonTitle: string;
     webtoonDescription: string;
-    genre: string;
-    publicationDays: string;
+    genre: number;
+    publicationDays: number;
     creator: string;
     creatorId: string;
     illustrator: string;
@@ -74,6 +62,7 @@ export interface episodeStateType {
       uploadDate: string;
       authorWords: string;
       thumbnail: string;
+      episodeNumber: number;
     }]
     totalSize: number;
   }

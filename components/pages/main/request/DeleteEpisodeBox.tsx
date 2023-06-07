@@ -16,8 +16,8 @@ export default function DeleteEpisodeBox() {
 
   const [episodeData, setEpisodeData] = useRecoilState<episodeStateType>(episodelist);
 
-  const handleWebtoonClick = (episodeId: number) => {
-    router.push(`/request/${requestId}/episodedelete/${episodeId}`);
+  const handleWebtoonClick = (webtoonId: number, episodeId: number, episodeNumber: number) => {
+    router.push(`/request/${requestId}/webtoonId/${webtoonId}/episodedelete/${episodeId}/episodeNumber/${episodeNumber}`);
   }
 
   useEffect(() => {
@@ -35,12 +35,12 @@ export default function DeleteEpisodeBox() {
           <p>회차 삭제 요청</p>
         </div>
         {episodeData.data && episodeData.data.demandView.map((subCategory) => (
-          <div className={style.webtoonInfoWrap} key={subCategory.episodeId} onClick={() => handleWebtoonClick(subCategory.episodeId)}>
+          <div className={style.webtoonInfoWrap} key={subCategory.episodeId} onClick={() => handleWebtoonClick(subCategory.webtoonId, subCategory.episodeId, subCategory.episodeNumber)}>
             <div className={style.ImgWrap}>
               <Image src={subCategory.thumbnail} alt={subCategory.episodeTitle} width={120} height={100} />
             </div>
             <div className={style.contentWrap}>
-              <p className={style.title}>{subCategory.episodeId}화 {subCategory.episodeTitle}</p>
+              <p className={style.title}>{subCategory.episodeNumber}화 {subCategory.episodeTitle}</p>
               <p className={style.author}>{subCategory.uploadDate}</p>
             </div>
           </div>

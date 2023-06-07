@@ -1,19 +1,18 @@
 import Layout from "@/components/layouts/layout"
-import EpisodeEnrollSection from "@/components/pages/main/Enroll/EpisodeEnrollSection";
-import EpisodeInfo from "@/components/pages/main/requestinfo/EpisodeInfo";
+import EpisodeModifySection from "@/components/pages/main/modify/EpisodeModifySection";
 import { NextPageWithLayout } from "@/pages/_app"
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher"
 
-const Enroll: NextPageWithLayout = () => {
+const EpisodeModify: NextPageWithLayout = () => {
 
     return (
         <>
-            <EpisodeEnrollSection />
+            <EpisodeModifySection />
         </>
     )
 }
 
-Enroll.getLayout = function getLayout(page: React.ReactElement) {
+EpisodeModify.getLayout = function getLayout(page: React.ReactElement) {
     return (
         <Layout>
             {page}
@@ -21,13 +20,15 @@ Enroll.getLayout = function getLayout(page: React.ReactElement) {
     )
 }
 
-export default Enroll
+export default EpisodeModify
 
 
 
 export async function getServerSideProps(context: Params) {
     const { requestId } = context.query;
     const { episodeId } = context.query;
+    const { episodeNumber } = context.query;
+    const { webtoonId } = context.query;
 
     console.log(requestId);
 
@@ -35,6 +36,8 @@ export async function getServerSideProps(context: Params) {
         props: {
             requestId,
             episodeId,
+            episodeNumber,
+            webtoonId,
         },
     };
 }

@@ -12,6 +12,7 @@ const episodelist = atom<episodeStateType>({
         uploadDate: '',
         authorWords: '',
         thumbnail: '',
+        episodeNumber: 0,
       }],
       totalSize: 0,
     }
