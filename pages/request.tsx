@@ -5,7 +5,7 @@ import { NextPageWithLayout } from "@/pages/_app"
 const request: NextPageWithLayout = () => {
     return (
         <>
-            <MainNavSection />
+            {/* <MainNavSection /> */}
         </>
     )
 }
@@ -19,3 +19,4 @@ request.getLayout = function getLayout(request: React.ReactElement) {
 }
 
 export default request
+

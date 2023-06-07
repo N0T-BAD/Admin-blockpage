@@ -13,18 +13,6 @@ export default function RequestPage() {
 
   const { requestId } = router.query;
 
-  const handleWebtoonClick = () => {
-    router.push("/correction");
-  }
-
-  const handleEpisodeClick = () => {
-    router.push('/episode');
-  }
-
-  const handleChangeEpisodeClick = () => {
-    router.push("/changeepisode");
-  }
-
   return (
     <>
 
@@ -130,12 +118,4 @@ export default function RequestPage() {
             </div>
           ))}
         </div>
-<<<<<<< HEAD
       ))} */}
-=======
-      ))}
-    </>
-
-  )
-}
->>>>>>> e447f6a990735a8622b21d7552fab0aec1628eea

@@ -5,7 +5,7 @@ import { NextPageWithLayout } from "@/pages/_app"
 const episode: NextPageWithLayout = () => {
   return (
     <>
-      <MainNavSection />
+      {/* <MainNavSection /> */}
     </>
   )
 }
