@@ -27,6 +27,8 @@ export default EpisodeDelete
 export async function getServerSideProps(context: Params) {
     const { requestId } = context.query;
     const { episodeId } = context.query;
+    const { episodeNumber } = context.query;
+    const { webtoonId } = context.query;
 
     console.log(requestId);
 
@@ -34,6 +36,8 @@ export async function getServerSideProps(context: Params) {
         props: {
             requestId,
             episodeId,
+            episodeNumber,
+            webtoonId,
         },
     };
 }

@@ -17,8 +17,8 @@ export default function EpisodeInfoBox() {
 
   const [episodeData, setEpisodeData] = useRecoilState<episodeStateType>(episodelist);
 
-  const handleWebtoonClick = (episodeId: number) => {
-    router.push(`/request/${requestId}/enroll/${episodeId}`);
+  const handleWebtoonClick = (webtoonId: number, episodeId: number, episodeNumber: number) => {
+    router.push(`/request/${requestId}/webtoonId/${webtoonId}/enroll/${episodeId}/episodeNumber/${episodeNumber}`);
   }
 
   useEffect(() => {
@@ -36,12 +36,12 @@ export default function EpisodeInfoBox() {
           <p>회차 등록 요청</p>
         </div>
         {episodeData.data && episodeData.data.demandView.map((subCategory) => (
-          <div className={style.webtoonInfoWrap} key={subCategory.episodeId} onClick={() => handleWebtoonClick(subCategory.episodeId)}>
+          <div className={style.webtoonInfoWrap} key={subCategory.episodeId} onClick={() => handleWebtoonClick(subCategory.webtoonId, subCategory.episodeId, subCategory.episodeNumber)}>
             <div className={style.ImgWrap}>
               <Image src={subCategory.thumbnail} alt={subCategory.episodeTitle} width={120} height={100} />
             </div>
             <div className={style.contentWrap}>
-              <p className={style.title}>{subCategory.episodeId}화 {subCategory.episodeTitle}</p>
+              <p className={style.title}>{subCategory.episodeNumber}화 {subCategory.episodeTitle}</p>
               <p className={style.author}>{subCategory.uploadDate}</p>
             </div>
           </div>

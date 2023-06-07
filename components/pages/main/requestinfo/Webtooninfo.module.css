@@ -35,17 +35,21 @@ p.webtooninfotitle {
 }
 
 .InfoBox p {
-  width: 25%;
+  width: 35%;
   text-align: center;
   align-self: center;
 }
 
 .InfoBox p.infotxt {
-  width: 70%;
+  width: 60%;
   background-color: var(--bp-gray);
   border-radius: 1rem;
   border: none;
   padding-left: 1rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .InfoillustratorBox {
@@ -56,13 +60,17 @@ p.webtooninfotitle {
 }
 
 .InfoillustratorBox p {
-  width: 25%;
+  width: 35%;
   text-align: center;
   align-self: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .InfoillustratorBox p.infotxt {
-  width: 70%;
+  width: 60%;
   background-color: var(--bp-gray);
   border-radius: 1rem;
   border: none;
@@ -107,18 +115,29 @@ p.webtooninfotitle {
 .labelBox p {
   display: flex;
   justify-content: center;
-  width: 25%;
+  width: 35%;
   margin: 1rem 0;
 }
 
+.ImgList{
+  display: flex;
+  width: 100%;
+}
+
 .ImageBox {
-  width: fit-content;
+  width: 60%;
   display: flex;
   justify-content: center;
-  border: 5px solid var(--bp-gray);
 }
 
 .ImageBox img {
   width: fit-content;
   margin: 1rem 0;
+  padding: 1rem 1rem;
+  border: 5px solid var(--bp-gray);
+  height: 100%;
+}
+
+.Imgleft{
+  width: 35%;
 }
