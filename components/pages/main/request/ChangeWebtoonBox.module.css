@@ -49,10 +49,17 @@
 .ImgWrap {
   width: 30%;
   height: 100%;
-  /* height: 100%;
-  position: relative;
-  overflow: hidden; */
+  display: flex;
+  justify-content: end;
+  margin: 0 1rem;
+}
+
+.ImgWrap img{
+  width: 70%;
+  height: 100%;
+  display: flex;
   align-items: center;
+  padding: 1rem 1rem;
 }
 
 .contentWrap {
