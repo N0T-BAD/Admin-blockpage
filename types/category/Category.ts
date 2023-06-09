@@ -1,6 +1,6 @@
 export interface AuthorPath {
     id: number;
     name: string;
-    path: string;
+    path?: string;
     imgurl: string;
 }
