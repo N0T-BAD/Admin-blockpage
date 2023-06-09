@@ -59,7 +59,7 @@ export default function Header() {
             {AuthorPathData.map((category: AuthorPath) => (
               <div className={style.TopCategories} key={category.id}>
                 <Image src={category.imgurl} alt="icon" width={20} height={20} />
-                <button onClick={() => router.push(category.path)}>{category.name}</button>
+                <button onClick={() => category.path ? router.push(category.path) : undefined}>{category.name}</button>
               </div>
             ))}
           </div>
