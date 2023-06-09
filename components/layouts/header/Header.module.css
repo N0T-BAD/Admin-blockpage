@@ -81,7 +81,7 @@ section.MainNavSection {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .megaMenu .logo{
@@ -99,6 +99,7 @@ p.megaMenuItem{
   width: 100%;
   text-align: center;
   margin: 0.8rem 0;
+  padding-right: 3rem;
 }
 
 button.backbtn{

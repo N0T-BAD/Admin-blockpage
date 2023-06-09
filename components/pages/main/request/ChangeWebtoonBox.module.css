@@ -2,16 +2,17 @@
     background-color: var(--bp-white);
     width: 100%;
     height: 100%;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
     display: flex;
     padding: 0.5rem 0.5rem;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     flex-wrap: wrap;
+    align-content: flex-start;
   }
   
-  /* .adminBox::-webkit-scrollbar {
+  .adminBox::-webkit-scrollbar {
     display: none;
-  } */
+  }
 
   .webtoontext {
   border-bottom: 1px solid var(--bp-gray);
@@ -38,12 +39,12 @@
 } */
 
 .webtoonInfoWrap {
-  width: 47%;
+  width: 40%;
   display: flex;
   border-bottom: 1px solid var(--bp-gray);
-  height: 15%;
-  margin: 1rem 1rem;
-  justify-content: center;
+  height: 18%;
+  margin: 1rem 3rem;
+  justify-content: space-between;
 }
 
 .ImgWrap {
@@ -55,7 +56,7 @@
 }
 
 .ImgWrap img{
-  width: 70%;
+  width: 90%;
   height: 100%;
   display: flex;
   align-items: center;
