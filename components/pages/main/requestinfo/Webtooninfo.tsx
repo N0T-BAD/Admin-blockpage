@@ -114,14 +114,15 @@ export default function Webtooninfo() {
               <p>장르 : </p>
               {genreOptions.map((genreOption) => (
                 webtooninfo.data.genre === genreOption.value &&
-                <p className={style.infotxt}>{genreOption.label}</p>
+                <p className={style.infotxt} key={genreOption.value}>{genreOption.label}</p>
               ))}            </div>
             <div className={style.InfoBox}>
               <p>요일 : </p>
               {dayOptions.map((dayOption) => (
                 webtooninfo.data.publicationDays === dayOption.value &&
-                <p className={style.infotxt}>{dayOption.label}</p>
-              ))}            </div>
+                <p className={style.infotxt} key={dayOption.value}>{dayOption.label}</p>
+              ))}
+            </div>
             <div className={style.InfoBox}>
               <p>작가 : </p>
               <p className={style.infotxt}>{webtooninfo.data.creator}</p>

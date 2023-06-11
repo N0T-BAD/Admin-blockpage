@@ -120,7 +120,7 @@ export default function EpisodeInfo() {
                 <div className={style.Imgleft2}></div>
                 <div className={style.episodeimg}>
                   {episode.data.images.map((episode) => (
-                    <Image src={episode.imageUrl} alt={"edisodeImage"} width={200} height={200} />
+                    <Image src={episode.imageUrl} alt={"edisodeImage"} width={200} height={200} key={episode.imageUrl} />
                   ))}
                 </div>
               </div>

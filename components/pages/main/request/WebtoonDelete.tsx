@@ -114,14 +114,14 @@ export default function WebtoonDelete() {
               <p>장르 : </p>
               {genreOptions.map((genreOption) => (
                 webtoonDelete.data.genre === genreOption.value &&
-                <p className={style.infotxt}>{genreOption.label}</p>
+                <p className={style.infotxt} key={genreOption.value}>{genreOption.label}</p>
               ))}
             </div>
             <div className={style.InfoBox}>
               <p>요일 : </p>
               {dayOptions.map((dayOption) => (
                 webtoonDelete.data.publicationDays === dayOption.value &&
-                <p className={style.infotxt}>{dayOption.label}</p>
+                <p className={style.infotxt} key={dayOption.value}>{dayOption.label}</p>
               ))}
             </div>
             <div className={style.InfoBox}>
