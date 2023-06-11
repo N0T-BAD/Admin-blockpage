@@ -5,6 +5,7 @@ import { commentsData } from '@/data/commentsData';
 import axios from 'axios';
 import Config from '@/configs/config.export';
 import Swal from 'sweetalert2';
+import Pagination from '../ui/pagebutton/Pagination';
 
 export default function CommentsPage() {
 
@@ -20,6 +21,10 @@ export default function CommentsPage() {
       commentId: 0,
     }]
   });
+
+  const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(1);
+  const offset = (page - 1) * limit;
 
   useEffect(() => {
     axios.get(`${baseUrl}/comment-service/v1/reports`)
@@ -77,7 +82,7 @@ export default function CommentsPage() {
 
     <div className={style.adminBox}>
       {comments.data && comments.data ? (
-        comments.data.map((comments) => (
+        comments.data.slice(offset, offset + limit).map((comments) => (
           <div className={style.commentspage} key={comments.commentId}>
             <div className={style.reporttop}>
               <p>{comments.reportType}</p>
@@ -99,6 +104,14 @@ export default function CommentsPage() {
         <></>
       )
       }
+      <footer className={style.paginationfotter}>
+        <Pagination
+          total={comments.data.length}
+          limit={limit}
+          page={page}
+          setPage={setPage}
+        />
+      </footer>
     </div>
   )
 }

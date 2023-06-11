@@ -85,3 +85,10 @@
 .reportcontent::-webkit-scrollbar {
   display: none;
 }
+
+footer.paginationfotter{
+  height: 3%;
+  width: 100%;
+  align-self: flex-end;
+  margin: 1rem 0;
+}
