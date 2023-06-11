@@ -77,7 +77,7 @@ export default function EpisodeModify() {
       {episode.data &&
         episode.data.episodeId === Number(episodeId) && (
           <div className={style.episodewrap} key={episode.data.episodeId}>
-            <p className={style.episodeinfotitle}>회차 등록</p>
+            <p className={style.episodeinfotitle}>회차 수정</p>
             <div className={style.InfoBox}>
               <p>에피소드 회차 : </p>
               <p className={style.infotxt}>{episode.data.episodeNumber} 화</p>

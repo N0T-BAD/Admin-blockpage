@@ -16,6 +16,7 @@
     padding: 0.5rem 0.5rem;
     justify-content: space-between;
     flex-wrap: wrap;
+    align-content: flex-start;
   }
 
   .webtoontext {
@@ -46,9 +47,9 @@
   width: 38%;
   display: flex;
   border-bottom: 1px solid var(--bp-gray);
-  height: 15%;
-  margin: 1rem 1rem;
-  justify-content: center;
+  height: 18%;
+  margin: 1rem 3rem;
+  justify-content: space-between;
 }
 
 .ImgWrap {
