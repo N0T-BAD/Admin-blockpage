@@ -16,7 +16,6 @@
     padding: 0.5rem 0.5rem;
     justify-content: space-between;
     flex-wrap: wrap;
-    align-content: flex-start;
   }
 
   .webtoontext {
@@ -33,6 +32,15 @@
   justify-content: center;
   font-weight: 600;
   font-size: 1.3rem;
+}
+
+.contentbox{
+  justify-content: flex-start;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }
 
 /* .webtoonBox {

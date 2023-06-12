@@ -35,21 +35,23 @@ export default function ChangeEpisodeBox() {
 
   return (
     <>
-      <div className={`${style.adminBox} ${episodeData.data && episodeData.data.demandView.length % 2 !== 0 ? style.adminBox2 : ''}`}>
+      <div className={style.adminBox}>
         <div className={style.webtoontext}>
           <p>회차 수정 요청</p>
         </div>
-        {episodeData.data && episodeData.data.demandView.slice(offset, offset + limit).map((subCategory) => (
-          <div className={style.webtoonInfoWrap} key={subCategory.episodeId} onClick={() => handleWebtoonClick(subCategory.webtoonId, subCategory.episodeId, subCategory.episodeNumber)}>
-            <div className={style.ImgWrap}>
-              <Image src={subCategory.thumbnail} alt={subCategory.episodeTitle} width={120} height={100} />
+        <div className={style.contentbox}>
+          {episodeData.data && episodeData.data.demandView.slice(offset, offset + limit).map((subCategory) => (
+            <div className={style.webtoonInfoWrap} key={subCategory.episodeId} onClick={() => handleWebtoonClick(subCategory.webtoonId, subCategory.episodeId, subCategory.episodeNumber)}>
+              <div className={style.ImgWrap}>
+                <Image src={subCategory.thumbnail} alt={subCategory.episodeTitle} width={120} height={100} />
+              </div>
+              <div className={style.contentWrap}>
+                <p className={style.title}>{subCategory.episodeNumber}화 {subCategory.episodeTitle}</p>
+                <p className={style.author}>{subCategory.uploadDate}</p>
+              </div>
             </div>
-            <div className={style.contentWrap}>
-              <p className={style.title}>{subCategory.episodeNumber}화 {subCategory.episodeTitle}</p>
-              <p className={style.author}>{subCategory.uploadDate}</p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
         <footer className={style.paginationfotter}>
           <Pagination
             total={episodeData.data.demandView.length}
