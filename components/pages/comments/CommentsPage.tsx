@@ -94,7 +94,7 @@ export default function CommentsPage() {
                 <p className={style.reportcontent}>{comments.content}</p>
               </div>
               <div className={style.reportbtn}>
-                <button onClick={() => handleAccept(comments.commentId)}>삭제</button>
+                <button onClick={() => handleAccept(comments.commentId)}>승인</button>
                 <button onClick={() => handleRefuse(comments.commentId)}>반려</button>
               </div>
             </div>
