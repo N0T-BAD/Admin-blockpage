@@ -37,22 +37,24 @@ export default function ChangeWebtoonBox() {
 
   return (
     <>
-      <div className={`${style.adminBox} ${webtoonData.data && webtoonData.data.demandView.length % 2 !== 0 ? style.adminBox2 : ''}`}>
+      <div className={style.adminBox}>
         <div className={style.webtoontext}>
           <p>웹툰 수정 요청</p>
         </div>
-        {webtoonData.data && webtoonData.data.demandView.slice(offset, offset + limit).map((subCategory) => (
-          <div className={style.webtoonInfoWrap} key={subCategory.webtoonId} onClick={() => handleWebtoonClick(subCategory.webtoonId)}>
-            <div className={style.ImgWrap}>
-              <Image src={subCategory.main} alt={'이것이 법이다'} width={120} height={100} />
+        <div className={style.contentbox}>
+          {webtoonData.data && webtoonData.data.demandView.slice(offset, offset + limit).map((subCategory) => (
+            <div className={style.webtoonInfoWrap} key={subCategory.webtoonId} onClick={() => handleWebtoonClick(subCategory.webtoonId)}>
+              <div className={style.ImgWrap}>
+                <Image src={subCategory.main} alt={'이것이 법이다'} width={120} height={100} />
+              </div>
+              <div className={style.contentWrap}>
+                <p className={style.title}>{subCategory.webtoonTitle}</p>
+                <p className={style.author}>{subCategory.genre}</p>
+                <p className={style.author}>{subCategory.publicationDays}</p>
+              </div>
             </div>
-            <div className={style.contentWrap}>
-              <p className={style.title}>{subCategory.webtoonTitle}</p>
-              <p className={style.author}>{subCategory.genre}</p>
-              <p className={style.author}>{subCategory.publicationDays}</p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
         <footer className={style.paginationfotter}>
           <Pagination
             total={webtoonData.data.demandView.length}

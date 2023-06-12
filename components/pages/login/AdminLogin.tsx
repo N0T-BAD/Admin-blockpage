@@ -53,9 +53,10 @@ export default function AdminLogin({ requestId }: RequestListProps) {
         password: inputData.password,
       }, { withCredentials: true }).then(res => {
         // const cookie = res.headers['set-cookie']; 
+        console.log(res.data.data.name)
         Swal.fire({
           icon: "success",
-          text: `${res.data}님 환영합니다~ ^^`,
+          text: `${res.data.data.name}님 환영합니다~ ^^`,
         })
         console.log(res);
         router.push(`/request/${requestId}`);
