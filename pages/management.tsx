@@ -1,10 +1,11 @@
 import Layout from "@/components/layouts/layout"
+import ManageMentSection from "@/components/pages/management/ManageMentSection"
 import { NextPageWithLayout } from "@/pages/_app"
 
 const Management: NextPageWithLayout = () => {
   return (
     <>
-
+      <ManageMentSection />
     </>
   )
 }
