@@ -15,14 +15,27 @@ export default function Header() {
   const [AdminName, setAdminName] = useState<adminIdDataType>();
 
   const [showMenu, setShowMenu] = useState(false);
+  const [showMenuAnimationTimeout, setShowMenuAnimationTimeout] = useState<NodeJS.Timeout | null>(null);
+
 
   const toggleDropMenu: React.MouseEventHandler<HTMLDivElement> = (e) => {
     e.stopPropagation();
     setShowMenu(!showMenu);
   }
 
+  // const toggleMenu = () => {
+  //   setShowMenu(!showMenu);
+  // };
+
   const toggleMenu = () => {
     setShowMenu(!showMenu);
+    if (!showMenu) {
+      setShowMenuAnimationTimeout(
+        setTimeout(() => {
+          setShowMenuAnimationTimeout(null);
+        }, 400) // Adjust the timeout to match the animation duration
+      );
+    }
   };
 
   const handlemain = () => {
@@ -36,7 +49,6 @@ export default function Header() {
   useEffect(() => {
     setAdminName(adminIdData[0])
   }, [])
-
 
   return (
     <>
@@ -56,6 +68,13 @@ export default function Header() {
               <Image src={"/assets/images/icons/request.svg"} alt="icon" width={20} height={20} />
               <button onClick={toggleMenu}>요청 승인</button>
             </div>
+            <div className={`${style.megaMenu} ${showMenu ? style.show : style.hide}`} onClick={toggleDropMenu}>
+              {UserPathData.map((category) => (
+                <div onClick={() => handleAuthor(category.id)} key={category.id}>
+                  <p className={style.megaMenuItem} key={category.id}>{category.name}</p>
+                </div>
+              ))}
+            </div>
             {AuthorPathData.map((category: AuthorPath) => (
               <div className={style.TopCategories} key={category.id}>
                 <Image src={category.imgurl} alt="icon" width={20} height={20} />
@@ -65,13 +84,6 @@ export default function Header() {
           </div>
         </section>
       </header >
-      <div className={`${style.megaMenu} ${showMenu ? style.show : style.megaMenu}`} onClick={toggleDropMenu}>
-        {UserPathData.map((category) => (
-          <div onClick={() => handleAuthor(category.id)} key={category.id}>
-            <p className={style.megaMenuItem} key={category.id}>{category.name}</p>
-          </div>
-        ))}
-      </div>
     </>
   )
 }

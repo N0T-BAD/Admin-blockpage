@@ -14,7 +14,7 @@ export const AuthorPathData = [
   {
     id: 3,
     name: '통계',
-    path: "/management",
+    path: "/statistics",
     imgurl: "/assets/images/icons/statistics.svg"
   },
   {

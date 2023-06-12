@@ -68,7 +68,7 @@ section.MainNavSection {
   font-size: 0.9rem;
 }
 
-.megaMenu {
+/* .megaMenu {
   position: absolute;
   left: 0px;
   top: 180px;
@@ -82,7 +82,8 @@ section.MainNavSection {
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-}
+  overflow: hidden;
+} */
 
 .megaMenu .logo{
   width: 100%;
@@ -91,8 +92,9 @@ section.MainNavSection {
   margin: 1rem 0;
 }
 
-.megaMenu.show {
+/* .megaMenu.show {
   left: 230px;
+  overflow: hidden;
 }
 
 p.megaMenuItem{
@@ -100,7 +102,7 @@ p.megaMenuItem{
   text-align: center;
   margin: 0.8rem 0;
   padding-right: 3rem;
-}
+} */
 
 button.backbtn{
   border: none;
@@ -123,4 +125,63 @@ p.topMenuTitle {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@keyframes slide-fade-in-dropdown-animation {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-fade-out-dropdown-animation {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+/* Add the styles for the megaMenu */
+.megaMenu {
+  display: none;
+  color: var(--bp-white);
+  background-color: var(--bp-dark-gray);
+  /* border: 1px solid #ccc; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  /* animation: slide-fade-in-dropdown-animation 4s ease; */
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+.show {
+  display: block;
+  animation-name: slide-fade-in-dropdown-animation;
+}
+
+.hide {
+  animation-name: slide-fade-out-dropdown-animation;
+}
+
+.megaMenuItem {
+  margin: 0;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.megaMenuItem:hover {
+  background-color: #f0f0f0;
 }
