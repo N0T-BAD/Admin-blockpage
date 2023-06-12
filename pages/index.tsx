@@ -1,15 +1,11 @@
 import AdminLoginSection from "@/components/pages/login/AdminLoginSection"
 import { NextPageWithLayout } from "@/pages/_app"
 
-interface RequestListProps {
-  requestId: string;
-}
-
-const Login: NextPageWithLayout<RequestListProps> = ({ requestId }) => {
+const Login: NextPageWithLayout = () => {
 
   return (
     <>
-      <AdminLoginSection requestId={requestId} />
+      <AdminLoginSection />
     </>
   )
 }
