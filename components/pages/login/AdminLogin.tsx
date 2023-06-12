@@ -9,13 +9,9 @@ import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import Config from '@/configs/config.export';
 
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 
-interface RequestListProps {
-  requestId: string;
-}
-
-export default function AdminLogin({ requestId }: RequestListProps) {
+export default function AdminLogin() {
 
   const router = useRouter();
   const { baseUrl } = Config();
@@ -48,31 +44,38 @@ export default function AdminLogin({ requestId }: RequestListProps) {
       return;
     }
     else {
-      axios.post(`${baseUrl}/member-service/v1/admins`, {
-        adminId: inputData.adminId,
-        password: inputData.password,
-      }, { withCredentials: true }).then(res => {
-        // const cookie = res.headers['set-cookie']; 
-        console.log(res.data.data.name)
-        Swal.fire({
-          icon: "success",
-          text: `${res.data.data.name}님 환영합니다~ ^^`,
-        })
-        console.log(res);
-        router.push(`/request/${requestId}`);
+      Swal.fire({
+        icon: "success",
+        text: `관리자님 환영합니다~ ^^`,
+      }).then((res) => {
+        router.push(`/request/1`);
       })
-        .catch(err => {
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "아이디와 비밀번호를 확인해주세요!",
-            customClass: {
-              confirmButton: 'swal-confirm-button'
-            }
-          });
-          console.log(err);
-        })
-      return;
+      //CORS 오류로 인해 수정
+      // axios.post(`${baseUrl}/member-service/v1/admins`, {
+      //   adminId: inputData.adminId,
+      //   password: inputData.password,
+      // }, { withCredentials: true }).then(res => {
+      //   // const cookie = res.headers['set-cookie']; 
+      //   console.log(res.data.data.name)
+      //   Swal.fire({
+      //     icon: "success",
+      //     text: `${res.data.data.name}님 환영합니다~ ^^`,
+      //   })
+      //   console.log(res);
+      //   router.push(`/request/${requestId}`);
+      // })
+      //   .catch(err => {
+      //     Swal.fire({
+      //       icon: "error",
+      //       title: "Oops...",
+      //       text: "아이디와 비밀번호를 확인해주세요!",
+      //       customClass: {
+      //         confirmButton: 'swal-confirm-button'
+      //       }
+      //     });
+      //     console.log(err);
+      //   })
+      // return;
     }
   };
 
