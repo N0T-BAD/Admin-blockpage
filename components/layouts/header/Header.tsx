@@ -29,13 +29,13 @@ export default function Header() {
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
-    if (!showMenu) {
-      setShowMenuAnimationTimeout(
-        setTimeout(() => {
-          setShowMenuAnimationTimeout(null);
-        }, 400) // Adjust the timeout to match the animation duration
-      );
-    }
+    // if (showMenu === false) {
+    //   setShowMenu(true);
+    // } else {
+    //   setTimeout(() => {
+    //     setShowMenu(false);
+    //   }, 400)
+    // }
   };
 
   const handlemain = () => {

@@ -141,13 +141,23 @@ p.topMenuTitle {
 
 @keyframes slide-fade-out-dropdown-animation {
   0% {
-    transform: translateY(0);
+    transform: translateY(-100%);
     opacity: 1;
   }
 
   100% {
-    transform: translateY(-100%);
+    transform: translateY(0);
     opacity: 0;
+  }
+}
+
+@keyframes slide-fade-out-dropdown-animation {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100%);
   }
 }
 
@@ -168,11 +178,11 @@ p.topMenuTitle {
 
 .show {
   display: block;
-  animation-name: slide-fade-in-dropdown-animation;
+  animation-name: slide-fade-in-dropdown-animation ;
 }
 
 .hide {
-  animation-name: slide-fade-out-dropdown-animation;
+  animation-name: slide-fade-out-dropdown-animation ;
 }
 
 .megaMenuItem {
