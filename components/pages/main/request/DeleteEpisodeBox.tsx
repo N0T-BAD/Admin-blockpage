@@ -26,7 +26,7 @@ export default function DeleteEpisodeBox() {
   const offset = (page - 1) * limit;
 
   useEffect(() => {
-    axios.get(`${baseUrl}/webtoon-service/v1/demands?target=episode&type=remove&pageNo=0`)
+    axios.get(`${baseUrl}/webtoon-service/v1/demands?target=episode&type=remove`)
       .then((res) => {
         setEpisodeData(res.data)
         console.log(res.data)
@@ -40,7 +40,7 @@ export default function DeleteEpisodeBox() {
           <p>회차 삭제 요청</p>
         </div>
         <div className={style.contentbox}>
-          {episodeData.data && episodeData.data.demandView.slice(offset, offset + limit).map((subCategory) => (
+          {episodeData.data && episodeData.data.slice(offset, offset + limit).map((subCategory) => (
             <div className={style.webtoonInfoWrap} key={subCategory.episodeId} onClick={() => handleWebtoonClick(subCategory.webtoonId, subCategory.episodeId, subCategory.episodeNumber)}>
               <div className={style.ImgWrap}>
                 <Image src={subCategory.thumbnail} alt={subCategory.episodeTitle} width={120} height={100} />
@@ -54,7 +54,7 @@ export default function DeleteEpisodeBox() {
         </div>
         <footer className={style.paginationfotter}>
           <Pagination
-            total={episodeData.data.demandView.length}
+            total={episodeData.data.length}
             limit={limit}
             page={page}
             setPage={setPage}
