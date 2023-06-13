@@ -44,38 +44,38 @@ export default function AdminLogin() {
       return;
     }
     else {
-      Swal.fire({
-        icon: "success",
-        text: `관리자님 환영합니다~ ^^`,
-      }).then((res) => {
+      // Swal.fire({
+      //   icon: "success",
+      //   text: `관리자님 환영합니다~ ^^`,
+      // }).then((res) => {
+      //   router.push(`/request/1`);
+      // })
+      //CORS 오류로 인해 수정
+      axios.post(`${baseUrl}/member-service/v1/admins`, {
+        adminId: inputData.adminId,
+        password: inputData.password,
+      }, { withCredentials: true }).then(res => {
+        // const cookie = res.headers['set-cookie']; 
+        console.log(res.data.data.name)
+        Swal.fire({
+          icon: "success",
+          text: `${res.data.data.name}님 환영합니다~ ^^`,
+        })
+        console.log(res);
         router.push(`/request/1`);
       })
-      //CORS 오류로 인해 수정
-      // axios.post(`${baseUrl}/member-service/v1/admins`, {
-      //   adminId: inputData.adminId,
-      //   password: inputData.password,
-      // }, { withCredentials: true }).then(res => {
-      //   // const cookie = res.headers['set-cookie']; 
-      //   console.log(res.data.data.name)
-      //   Swal.fire({
-      //     icon: "success",
-      //     text: `${res.data.data.name}님 환영합니다~ ^^`,
-      //   })
-      //   console.log(res);
-      //   router.push(`/request/${requestId}`);
-      // })
-      //   .catch(err => {
-      //     Swal.fire({
-      //       icon: "error",
-      //       title: "Oops...",
-      //       text: "아이디와 비밀번호를 확인해주세요!",
-      //       customClass: {
-      //         confirmButton: 'swal-confirm-button'
-      //       }
-      //     });
-      //     console.log(err);
-      //   })
-      // return;
+        .catch(err => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "아이디와 비밀번호를 확인해주세요!",
+            customClass: {
+              confirmButton: 'swal-confirm-button'
+            }
+          });
+          console.log(err);
+        })
+      return;
     }
   };
 
