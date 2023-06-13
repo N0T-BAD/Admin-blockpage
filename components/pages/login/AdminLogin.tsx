@@ -31,7 +31,6 @@ export default function AdminLogin() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
     e.preventDefault();
-    console.log(inputData);
     if (inputData.adminId === "" || inputData.password === "") {
       Swal.fire({
         icon: "error",
@@ -44,19 +43,10 @@ export default function AdminLogin() {
       return;
     }
     else {
-      // Swal.fire({
-      //   icon: "success",
-      //   text: `관리자님 환영합니다~ ^^`,
-      // }).then((res) => {
-      //   router.push(`/request/1`);
-      // })
-      //CORS 오류로 인해 수정
       axios.post(`${baseUrl}/member-service/v1/admins`, {
         adminId: inputData.adminId,
         password: inputData.password,
       }, { withCredentials: true }).then(res => {
-        // const cookie = res.headers['set-cookie']; 
-        console.log(res.data.data.name)
         Swal.fire({
           icon: "success",
           text: `${res.data.data.name}님 환영합니다~ ^^`,

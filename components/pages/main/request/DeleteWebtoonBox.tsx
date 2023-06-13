@@ -27,7 +27,7 @@ export default function DeleteWebtoonBox() {
   const offset = (page - 1) * limit;
 
   useEffect(() => {
-    axios.get(`${baseUrl}/webtoon-service/v1/demands?target=webtoon&type=remove&pageNo=0`)
+    axios.get(`${baseUrl}/webtoon-service/v1/demands?target=webtoon&type=remove`)
       .then((res) => {
         setWebtoonData(res.data)
         console.log(res.data)
@@ -42,7 +42,7 @@ export default function DeleteWebtoonBox() {
           <p>웹툰 삭제 요청</p>
         </div>
         <div className={style.contentbox}>
-          {webtoonData.data && webtoonData.data.demandView.slice(offset, offset + limit).map((subCategory) => (
+          {webtoonData.data && webtoonData.data.slice(offset, offset + limit).map((subCategory) => (
             <div className={style.webtoonInfoWrap} key={subCategory.webtoonId} onClick={() => handleWebtoonClick(subCategory.webtoonId)}>
               <div className={style.ImgWrap}>
                 <Image src={subCategory.main} alt={'이것이 법이다'} width={120} height={100} />
@@ -57,7 +57,7 @@ export default function DeleteWebtoonBox() {
         </div>
         <footer className={style.paginationfotter}>
           <Pagination
-            total={webtoonData.data.demandView.length}
+            total={webtoonData.data.length}
             limit={limit}
             page={page}
             setPage={setPage}
