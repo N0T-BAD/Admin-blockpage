@@ -9,13 +9,9 @@ import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import Config from '@/configs/config.export';
 
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 
-interface RequestListProps {
-  requestId: string;
-}
-
-export default function AdminLogin({ requestId }: RequestListProps) {
+export default function AdminLogin() {
 
   const router = useRouter();
   const { baseUrl } = Config();
@@ -35,7 +31,6 @@ export default function AdminLogin({ requestId }: RequestListProps) {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
     e.preventDefault();
-    console.log(inputData);
     if (inputData.adminId === "" || inputData.password === "") {
       Swal.fire({
         icon: "error",
@@ -52,16 +47,12 @@ export default function AdminLogin({ requestId }: RequestListProps) {
         adminId: inputData.adminId,
         password: inputData.password,
       }, { withCredentials: true }).then(res => {
-        // const cookie = res.headers['set-cookie']; 
-        console.log(res.data.data.name)
         Swal.fire({
           icon: "success",
           text: `${res.data.data.name}님 환영합니다~ ^^`,
         })
-          .then(() => {
-            console.log(res);
-            router.push(`/request/1`);
-          })
+        console.log(res);
+        router.push(`/request/1`);
       })
         .catch(err => {
           Swal.fire({

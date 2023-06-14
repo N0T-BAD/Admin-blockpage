@@ -27,7 +27,7 @@ export default function EpisodeInfoBox() {
   const offset = (page - 1) * limit;
 
   useEffect(() => {
-    axios.get(`${baseUrl}/webtoon-service/v1/demands?target=episode&type=enroll&pageNo=0`)
+    axios.get(`${baseUrl}/webtoon-service/v1/demands?target=episode&type=enroll`)
       .then((res) => {
         setEpisodeData(res.data)
         console.log(res.data)
@@ -41,7 +41,7 @@ export default function EpisodeInfoBox() {
           <p>회차 등록 요청</p>
         </div>
         <div className={style.contentbox}>
-          {episodeData.data && episodeData.data.demandView.slice(offset, offset + limit).map((subCategory) => (
+          {episodeData.data && episodeData.data.slice(offset, offset + limit).map((subCategory) => (
             <div className={style.webtoonInfoWrap} key={subCategory.episodeId} onClick={() => handleWebtoonClick(subCategory.webtoonId, subCategory.episodeId, subCategory.episodeNumber)}>
               <div className={style.ImgWrap}>
                 <Image src={subCategory.thumbnail} alt={subCategory.episodeTitle} width={120} height={100} />
@@ -55,7 +55,7 @@ export default function EpisodeInfoBox() {
         </div>
         <footer className={style.paginationfotter}>
           <Pagination
-            total={episodeData.data.demandView.length}
+            total={episodeData.data.length}
             limit={limit}
             page={page}
             setPage={setPage}
