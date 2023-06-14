@@ -58,8 +58,10 @@ export default function AdminLogin({ requestId }: RequestListProps) {
           icon: "success",
           text: `${res.data.data.name}님 환영합니다~ ^^`,
         })
-        console.log(res);
-        router.push(`/request/${requestId}`);
+          .then(() => {
+            console.log(res);
+            router.push(`/request/1`);
+          })
       })
         .catch(err => {
           Swal.fire({
