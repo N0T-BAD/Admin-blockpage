@@ -36,8 +36,6 @@ export default function CommentsPage() {
       .catch((err) => {
         console.log(err)
       })
-    // console.log(commentsData);
-    // setComments(commentsData);
   }, [])
 
   const handleAccept = (commentId: number) => {
@@ -81,29 +79,30 @@ export default function CommentsPage() {
   return (
 
     <div className={style.adminBox}>
-      {comments.data && comments.data ? (
-        comments.data.slice(offset, offset + limit).map((comments) => (
-          <div className={style.commentspage} key={comments.commentId}>
-            <div className={style.reporttop}>
-              <p>{comments.reportType}</p>
-              <p>{comments.reportDate}</p>
-            </div>
-            <div className={style.reportlist}>
-              <div className={style.reportbox}>
-                <p className={style.reportId}>{comments.memberNickname}</p>
-                <p className={style.reportcontent}>{comments.content}</p>
+      <div className={style.commentstext}>
+        <p>댓글 신고 요청</p>
+      </div>
+      <div className={style.contentbox}>
+        {comments.data &&
+          comments.data.slice(offset, offset + limit).map((comments) => (
+            <div className={style.commentspage} key={comments.commentId}>
+              <div className={style.reporttop}>
+                <p>{comments.reportType}</p>
+                <p>{comments.reportDate}</p>
               </div>
-              <div className={style.reportbtn}>
-                <button onClick={() => handleAccept(comments.commentId)}>승인</button>
-                <button onClick={() => handleRefuse(comments.commentId)}>반려</button>
+              <div className={style.reportlist}>
+                <div className={style.reportbox}>
+                  <p className={style.reportId}>{comments.memberNickname}</p>
+                  <p className={style.reportcontent}>{comments.content}</p>
+                </div>
+                <div className={style.reportbtn}>
+                  <button onClick={() => handleAccept(comments.commentId)}>승인</button>
+                  <button onClick={() => handleRefuse(comments.commentId)}>반려</button>
+                </div>
               </div>
             </div>
-          </div>
-        ))
-      ) : (
-        <></>
-      )
-      }
+          ))}
+      </div>
       <footer className={style.paginationfotter}>
         <Pagination
           total={comments.data.length}

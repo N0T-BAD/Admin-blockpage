@@ -6,13 +6,17 @@ import { AuthorPathData, UserPathData } from '@/data/MainTopNavData';
 import { AuthorPath } from '@/types/category/Category';
 import { adminIdData } from '@/data/adminIdData';
 import { adminDataType, adminIdDataType } from '@/types/login/adminIdDataType';
+import Config from '@/configs/config.export';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 export default function Header() {
 
   const router = useRouter();
+  const { baseUrl } = Config();
 
   // const { isLogin, accessToken } = useRecoilValue(adminLoginState)
-  const [AdminName, setAdminName] = useState<adminIdDataType>();
+  const [AdminName, setAdminName] = useState<string>();
 
   const [showMenu, setShowMenu] = useState(false);
   const [showMenuAnimationTimeout, setShowMenuAnimationTimeout] = useState<NodeJS.Timeout | null>(null);
@@ -23,19 +27,8 @@ export default function Header() {
     setShowMenu(!showMenu);
   }
 
-  // const toggleMenu = () => {
-  //   setShowMenu(!showMenu);
-  // };
-
   const toggleMenu = () => {
     setShowMenu(!showMenu);
-    // if (showMenu === false) {
-    //   setShowMenu(true);
-    // } else {
-    //   setTimeout(() => {
-    //     setShowMenu(false);
-    //   }, 400)
-    // }
   };
 
   const handlemain = () => {
@@ -46,8 +39,37 @@ export default function Header() {
     router.push(`/request/${requestId}`);
   }
 
+  const handleLogout = () => {
+    axios.delete(`${baseUrl}/member-service/v1/admins`,
+      { withCredentials: true })
+      .then(res => {
+        console.log(res);
+        Swal.fire({
+          icon: "success",
+          text: res.data.data.message,
+        }).then(() => {
+          localStorage.removeItem('username')
+          router.push("/");
+        });
+      })
+  }
+
   useEffect(() => {
-    setAdminName(adminIdData[0])
+    const UserName = localStorage.getItem('username')
+    if (UserName === null) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "로그인이 필요한 서비스입니다!",
+        customClass: {
+          confirmButton: 'swal-confirm-button'
+        }
+      }).then(() => {
+        router.push('/')
+      })
+    } else {
+      setAdminName(UserName)
+    }
   }, [])
 
   return (
@@ -57,8 +79,8 @@ export default function Header() {
           <Image src={'/assets/images/logo/logo.svg'} alt="logo" width={150} height={77} onClick={handlemain} />
         </div>
         {AdminName &&
-          <div className={style.adminnamebox} key={AdminName.id}>
-            <p>{AdminName.name} 님~</p>
+          <div className={style.adminnamebox}>
+            <p>{AdminName} 님~</p>
             <p>환영합니다~ ^^</p>
           </div>
         }
@@ -81,6 +103,10 @@ export default function Header() {
                 <button onClick={() => category.path ? router.push(category.path) : undefined}>{category.name}</button>
               </div>
             ))}
+            <div className={style.TopCategories}>
+              <Image src={"/assets/images/icons/logout.svg"} alt="logout" width={20} height={20} />
+              <button onClick={handleLogout}>로그아웃</button>
+            </div>
           </div>
         </section>
       </header >
