@@ -43,14 +43,6 @@
   align-content: flex-start;
 }
 
-/* .webtoonBox {
-  display: flex;
-  width: 45%;
-  border-bottom: 1px solid var(--bp-gray);
-  padding: 1.6rem 1rem;
-  flex-direction: column;
-} */
-
 .webtoonInfoWrap {
   width: 38%;
   display: flex;
