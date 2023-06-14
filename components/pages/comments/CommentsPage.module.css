@@ -7,6 +7,7 @@
   padding: 0.5rem 0.5rem;
   justify-content: space-between;
   flex-wrap: wrap;
+  align-content: flex-start;
 }
 
 .adminBox::-webkit-scrollbar {
@@ -91,4 +92,29 @@ footer.paginationfotter{
   width: 100%;
   align-self: flex-end;
   margin: 1rem 0;
+}
+
+.commentstext {
+  border-bottom: 1px solid var(--bp-gray);
+  height: 10%;
+  width: 100%;
+}
+
+.commentstext p {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.contentbox{
+  justify-content: flex-start;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }

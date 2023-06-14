@@ -21,8 +21,6 @@ export default function AdminLogin() {
     password: ''
   })
 
-  // const [loginData, setLoginData] = useRecoilState<loginAdminType>(adminLoginState);
-
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setInputData({ ...inputData, [name]: value });
@@ -46,14 +44,18 @@ export default function AdminLogin() {
       axios.post(`${baseUrl}/member-service/v1/admins`, {
         adminId: inputData.adminId,
         password: inputData.password,
-      }, { withCredentials: true }).then(res => {
-        Swal.fire({
-          icon: "success",
-          text: `${res.data.data.name}님 환영합니다~ ^^`,
+      }, { withCredentials: true })
+        .then(res => {
+          console.log(res)
+          localStorage.setItem("username", res.data.data.name);
+          console.log(localStorage.getItem("username"))
+          Swal.fire({
+            icon: "success",
+            text: `${res.data.data.name}님 환영합니다~ ^^`,
+          }).then(() => {
+            router.push(`/request/1`);
+          });
         })
-        console.log(res);
-        router.push(`/request/1`);
-      })
         .catch(err => {
           Swal.fire({
             icon: "error",
