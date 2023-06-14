@@ -103,10 +103,6 @@ p.episodeinfotitle {
   margin: 1rem 0;
 }
 
-.episodeImg {
-  text-align: center;
-}
-
 .ImageBox {
   width: 60%;
   display: flex;
@@ -115,21 +111,12 @@ p.episodeinfotitle {
 
 .ImageBox img {
   width: fit-content;
-  margin: 1rem 0;
   padding: 1rem 1rem;
   border: 5px solid var(--bp-gray);
   height: 100%;
 }
 
 .episodeimg {
-  /* display: flex;
-  width: fit-content;
-  flex-direction: column;
-  overflow-y: scroll;
-  height: 25rem;
-  margin: 1rem 0;
-  border: 5px solid var(--bp-gray);
-  text-align: center; */
   width: 25%;
   display: flex;
   border: 5px solid var(--bp-gray);
@@ -144,10 +131,8 @@ p.episodeinfotitle {
 }
 
 .episodeimg img {
-  width: 100%;
-  padding: 1rem 1rem;
-  /* border: 5px solid var(--bp-gray); */
-  height: 100%;
+  width: 80%;
+  height: auto;
 }
 
 .Imgleft{

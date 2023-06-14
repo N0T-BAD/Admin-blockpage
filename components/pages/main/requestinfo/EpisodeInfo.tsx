@@ -1,4 +1,4 @@
-import { episodeDetailType, episodeStateType } from '@/types/webtoon/webtoonDataType';
+import { episodeDetailType } from '@/types/webtoon/webtoonDataType';
 import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/router'
